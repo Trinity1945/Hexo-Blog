@@ -1,0 +1,795 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/avatar.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#857d85">
+  <meta name="author" content="liziyuan">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="💠MyBatis一个🌰 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MyBatis">
+<meta property="og:url" content="http://example.com/2022/09/04/MyBatis/index.html">
+<meta property="og:site_name" content="九黎城">
+<meta property="og:description" content="💠MyBatis一个🌰 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/15.png">
+<meta property="article:published_time" content="2022-09-04T01:12:24.000Z">
+<meta property="article:modified_time" content="2022-09-04T09:45:43.660Z">
+<meta property="article:author" content="liziyuan">
+<meta property="article:tag" content="八股文">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/15.png">
+  
+  
+  
+  <title>MyBatis - 九黎城</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>bigMouse</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                Links
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/2.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="MyBatis"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-09-04 09:12" pubdate>
+          2022年9月4日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          16k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          132 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">MyBatis</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="💠MyBatis"><a href="#💠MyBatis" class="headerlink" title="💠MyBatis"></a>💠MyBatis</h1><p>一个🌰</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br></pre></td><td class="code"><pre><code class="hljs xml-dtd">&lt;resultMap id=&quot;ExtListBaseResultMap&quot; type=&quot;com.xy.tms.tran.entity.vo.TranSeaPlanListVo&quot;<br>           extends=&quot;com.xy.tms.tran.dao.TranSeaPlanMapper.BaseResultMap&quot;&gt;<br>    &lt;result column=&quot;sea_plan_detail_id&quot; jdbcType=&quot;BIGINT&quot; property=&quot;seaPlanDetailId&quot;/&gt;<br>    &lt;result column=&quot;ship_company_order_no&quot; jdbcType=&quot;VARCHAR&quot; property=&quot;shipCompanyOrderNo&quot;/&gt;<br>    &lt;result column=&quot;materiel_code&quot; jdbcType=&quot;VARCHAR&quot; property=&quot;materielCode&quot;/&gt;<br>    &lt;result column=&quot;materiel_name&quot; jdbcType=&quot;VARCHAR&quot; property=&quot;materielName&quot;/&gt;<br>    &lt;result column=&quot;materiel_id&quot; jdbcType=&quot;BIGINT&quot; property=&quot;materielId&quot;/&gt;<br>    &lt;result column=&quot;status&quot; jdbcType=&quot;VARCHAR&quot; property=&quot;status&quot;/&gt;<br>    &lt;result column=&quot;create_by&quot; jdbcType=&quot;VARCHAR&quot; property=&quot;createBy&quot; /&gt;<br>    &lt;result column=&quot;create_by_name&quot; jdbcType=&quot;VARCHAR&quot; property=&quot;createByName&quot; /&gt;<br>    &lt;result column=&quot;create_time&quot; jdbcType=&quot;TIMESTAMP&quot; property=&quot;createTime&quot; /&gt;<br>    &lt;result column=&quot;update_by&quot; jdbcType=&quot;VARCHAR&quot; property=&quot;updateBy&quot; /&gt;<br>    &lt;result column=&quot;update_by_name&quot; jdbcType=&quot;VARCHAR&quot; property=&quot;updateByName&quot; /&gt;<br>    &lt;result column=&quot;update_time&quot; jdbcType=&quot;TIMESTAMP&quot; property=&quot;updateTime&quot; /&gt;<br>    &lt;collection property=&quot;sysRoleIdList&quot; javaType=&quot;java.util.ArrayList&quot; ofType=&quot;java.lang.String&quot; resultMap=&quot;itemResultId&quot;/&gt;<br>&lt;/resultMap&gt;<br><br>&lt;resultMap id=&quot;itemResult&quot; type=&quot;java.lang.String&quot;&gt;<br>    &lt;id column=&quot;role_name&quot; javaType=&quot;java.lang.String&quot; jdbcType=&quot;VARCHAR&quot; property=&quot;role_name&quot;/&gt;<br>&lt;/resultMap&gt;<br><br>&lt;sql id=&quot;Base_Column_List&quot;&gt;<br>    tran_main_plan_id, organization_id, tran_order_id, tran_main_plan_no, plan_sort,<br>    tran_type, tran_type_desc, tran_method, tran_method_desc, start_station_id, end_station_id,<br>    audit_status, audit_status_desc, audit_time, audit_user, allot_status, allot_status_desc,<br>    delivery_status, delivery_status_desc, remark, create_by, create_by_name, create_time,<br>    update_by, update_by_name, update_time, version<br> &lt;/sql&gt;<br><br>&lt;select id=&quot;querySeaPlan&quot; parameterType=&quot;com.xy.tms.tran.entity.vo.TranSeaPlanQueryVo&quot;<br>        resultMap=&quot;ExtListBaseResultMap&quot;&gt;<br>    SELECT<br>    &lt;include refid=&quot;Base_Column_List&quot; /&gt;<br>    tsp.sea_plan_id sea_plan_id,<br>    tsp.status_desc status_desc, -- 状态,<br>    tsp.sea_plan_no sea_plan_no, -- 海运计划号,<br>    tsp.ship_company_order_no ship_company_order_no, -- 船公司订舱单号<br>    tsp.book_space_success_flag_desc book_space_success_flag_desc, -- 是否订舱成功,<br>    tsp.plan_date plan_date, -- 计划日期,<br>    tspd.materiel_code materiel_code, -- 物料编码,<br>    tspd.materiel_name materiel_name, -- 物料名称,<br>    CONCAT(ifnull(mm.materiel_spec,&#x27;&#x27;)<br>    ,ifnull(mm.packing_weight_unit_desc,&#x27;&#x27;),&#x27;/&#x27;,ifnull(mm.packing_pieces_unit_desc,&#x27;&#x27;)) as packing_spec_full_desc,<br>    -- 规格,<br>    pg.product_grade_name product_grade_name, -- 等级,<br>    mm.base_unit_desc base_unit_desc, -- 单位<br>    tspd.product_grade_id<br>    FROM tran_sea_plan tsp<br>    LEFT JOIN tran_sea_plan_detail tspd ON tsp.sea_plan_id = tspd.sea_plan_id<br>    LEFT JOIN mst_warehouse start_mw ON start_ml.location_id = start_mw.location_id<br>    AND start_mw.organization_id = tsp.organization_id<br>    LEFT JOIN mst_carrier mc ON tsp.ship_company_id = mc.carrier_id<br>    &lt;where&gt;<br>        &lt;trim prefixOverrides=&quot;and&quot;&gt;<br>       &lt;!-- &lt;trim prefix=&quot;WHERE&quot; prefixOverrides=&quot;AND&quot;&gt;  与上面等价 --&gt;<br>            &lt;if test=&quot;queryVo.seaPlanNo != null and queryVo.seaPlanNo != &#x27;&#x27;&quot;&gt;<br>                AND tsp.sea_plan_no LIKE concat(&#x27;%&#x27;,#&#123;queryVo.seaPlanNo&#125;, &#x27;%&#x27;)<br>            &lt;/if&gt;<br>            &lt;if test=&quot;queryVo.organizationId != null and queryVo.organizationId != &#x27;&#x27;&quot;&gt;<br>                AND tsp.organization_id = #&#123;queryVo.organizationId&#125;<br>            &lt;/if&gt;<br>            &lt;if test=&quot;queryVo.status != null and queryVo.status.size() &gt;0&quot;&gt;<br>                AND tsp.status IN<br>                &lt;foreach collection=&quot;queryVo.status&quot; item=&quot;item&quot; open=&quot;(&quot; separator=&quot;,&quot; close=&quot;)&quot;&gt;<br>                    #&#123;item&#125;<br>                &lt;/foreach&gt;<br>            &lt;/if&gt;<br>            &lt;if test=&quot;queryVo.createTimeList != null and queryVo.createTimeList.size() == 2&quot;&gt;<br>                AND tsp.create_time<br>                BETWEEN #&#123;queryVo.createTimeList[0] &#125; AND #&#123;queryVo.createTimeList[1]  &#125;<br>            &lt;/if&gt;<br>            &lt;choose&gt;<br>                &lt;when test=&quot;isUpdate !=null &quot;&gt;<br>                    AND tsp.create_time = #&#123;isUpdate, jdbcType=INTEGER&#125;<br>                &lt;/when&gt;<br>                &lt;when test=&quot;isDelete != null&quot;&gt;<br>                    AND tsp.create_time  = #&#123;isDelete, jdbcType=INTEGER&#125;<br>                &lt;/when&gt;<br>                &lt;otherwise&gt;<br>                    AND tsp.create_time NOT NULL<br>                &lt;/otherwise&gt;<br>            &lt;/choose&gt;<br>            &lt;if test=&quot; userName != null and userName !=&quot;&quot; &quot;&gt; <br>            　　&lt;bind name= &quot; userNameLike &quot; value ＝ &quot;&#x27;%&#x27;＋ userName ＋ &#x27;%&#x27;&quot;/&gt;<br>            　　and username like #&#123;userNameLike&#125; <br>            &lt;/if&gt;　　<br>        &lt;/trim&gt;<br>    &lt;/where&gt;<br>    ORDER BY<br>    tsp.sea_plan_no DESC<br>&lt;/select&gt;<br><br>&lt;update id=&quot;updateAuthorIfNecessary&quot;&gt;<br>  update Author<br>    &lt;set&gt;<br>      &lt;if test=&quot;username != null&quot;&gt;username=#&#123;username&#125;,&lt;/if&gt;<br>      &lt;if test=&quot;password != null&quot;&gt;password=#&#123;password&#125;,&lt;/if&gt;<br>      &lt;if test=&quot;email != null&quot;&gt;email=#&#123;email&#125;,&lt;/if&gt;<br>      &lt;if test=&quot;bio != null&quot;&gt;bio=#&#123;bio&#125;&lt;/if&gt;<br>    &lt;/set&gt;<br>  where id=#&#123;id&#125;<br>&lt;/update&gt;<br><br>&lt;update id=&quot;updateAuthorIfNecessary2&quot;&gt;<br>  update Author<br>    &lt;trim prefix=&quot;SET&quot; suffixOverrides=&quot;,&quot;&gt;<br>        &lt;if test=&quot;username != null&quot;&gt;username=#&#123;username&#125;,&lt;/if&gt;<br>            &lt;if test=&quot;password != null&quot;&gt;password=#&#123;password&#125;,&lt;/if&gt;<br>            &lt;if test=&quot;email != null&quot;&gt;email=#&#123;email&#125;,&lt;/if&gt;<br>            &lt;if test=&quot;bio != null&quot;&gt;bio=#&#123;bio&#125;&lt;/if&gt;<br>    &lt;/trim&gt;<br>  where id=#&#123;id&#125;<br>&lt;/update&gt;<br></code></pre></td></tr></table></figure>
+
+<h2 id="📓执行流程"><a href="#📓执行流程" class="headerlink" title="📓执行流程"></a>📓执行流程</h2><p><img src="https://raw.githubusercontent.com/rbmonster/file-storage/main/learning-note/learning/basic/mybatisgo.png" srcset="/img/loading.gif" lazyload alt="avatar"></p>
+<ol>
+<li>mapper.xml中的配置⽂件⾥的每条sql语句，每一个<code>&lt;select&gt;、&lt;insert&gt;、&lt;update&gt;、&lt;delete&gt;</code>标签，都会被解析为带有Id信息的一个个MappedStatement对象，再通过⼀个HashMap集合保存起来。</li>
+<li>Mapper接口是没有实现类的，当调用接口方法时，接口全限名+方法名拼接字符串作为 key 值，可唯一定位一个MappedStatement。</li>
+<li>执⾏getMapper()⽅法，判断是否注册过mapper接⼝，注册了就会使⽤mapperProxyFactory去⽣成代理类MapperProxy执⾏⽬标⽅法时，会调⽤MapperProxy代理类的invoke()⽅法</li>
+<li>此时会使用boundSql和对应的mapperStatement构造cacheKey,先进行缓存查询，命中直接返回。缓存<code>Map&lt;Method, MapperMethodInvoker&gt; methodCache =</code></li>
+<li>缓存无命中,则创建connect连接，通过statement对象执行execute方法。</li>
+<li>执⾏execute()⽅法返回结果使用resultSetHandler进行结果集的封装，添加到缓存中，最后返回结果。</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/rbmonster/file-storage/main/learning-note/learning/basic/mybatisProcess.jpg"><img src="https://raw.githubusercontent.com/rbmonster/file-storage/main/learning-note/learning/basic/mybatisProcess.jpg" srcset="/img/loading.gif" lazyload alt="avatar"></a></p>
+<ul>
+<li>四大组件:StatementHandler、Executor、ParameterHandler、ResultSetHandler</li>
+</ul>
+<p>下面的执行流程简要描述，只是为了辅助理解，相关初始化方法：</p>
+<ol>
+<li>Configuration中保存了，解析完xml的MapperStatement的HashMap<ul>
+<li>Mybatis将Mapper接口注册到Spring的时候，将Mapper接口生成的BeanDefinition的beanClass设置为MapperFactoryBean</li>
+</ul>
+</li>
+<li>Mapper接口初始化的时候通过MapperFactoryBean，进而调用MapperProxyFactory方法初始化及调用。</li>
+<li>MapperProxy代理调用时，通过匹配权限名+ID 获取MapperStatement对象</li>
+<li>MapperProxy进而MapperMethod的execute方法。</li>
+<li>SqlSession 执行的时候会获取Configuration中的四大组件进行sql执行。</li>
+<li>Configuration返回的四大组件是经过Interceptor代理封装过返回的代理对象。</li>
+</ol>
+<h2 id="📓Interceptor的实现原理"><a href="#📓Interceptor的实现原理" class="headerlink" title="📓Interceptor的实现原理"></a>📓Interceptor的实现原理</h2><p>Executor、ResultSetHandler、StatementHandler、ParameterHandler，这是Mybatis中的四大对象，也是拦截器的切入点。我们可以基于这四大对象的方法进行增强。因为这四个都是接口，我们可以利用动态代理进行方法的增强。</p>
+<p>org.apache.ibatis.session.Configuration类，在新建接口对象的时候，通过调用interceptorChain：拦截器执行链的plugin方法，返回被拦截器包装后的代理对象。 因此对象调用的时候，会判断方法是否拦截进而进入拦截器的方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Plugin</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">InvocationHandler</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Object <span class="hljs-title function_">wrap</span><span class="hljs-params">(Object target, Interceptor interceptor)</span> &#123;<br>        Map&lt;Class&lt;?&gt;, Set&lt;Method&gt;&gt; signatureMap = getSignatureMap(interceptor);<br>        Class&lt;?&gt; type = target.getClass();<br>        Class&lt;?&gt;[] interfaces = getAllInterfaces(type, signatureMap);<br>        <span class="hljs-keyword">if</span> (interfaces.length &gt; <span class="hljs-number">0</span>) &#123;<br>            <span class="hljs-keyword">return</span> Proxy.newProxyInstance(<br>                    type.getClassLoader(),<br>                    interfaces,<br>                    <span class="hljs-keyword">new</span> <span class="hljs-title class_">Plugin</span>(target, interceptor, signatureMap));<br>        &#125;<br>        <span class="hljs-keyword">return</span> target;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> Object <span class="hljs-title function_">invoke</span><span class="hljs-params">(Object proxy, Method method, Object[] args)</span> <span class="hljs-keyword">throws</span> Throwable &#123;<br>        <span class="hljs-keyword">try</span> &#123;<br>            Set&lt;Method&gt; methods = signatureMap.get(method.getDeclaringClass());<br>            <span class="hljs-keyword">if</span> (methods != <span class="hljs-literal">null</span> &amp;&amp; methods.contains(method)) &#123;<br>                <span class="hljs-keyword">return</span> interceptor.intercept(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Invocation</span>(target, method, args));<br>            &#125;<br>            <span class="hljs-keyword">return</span> method.invoke(target, args);<br>        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br>            <span class="hljs-keyword">throw</span> ExceptionUtil.unwrapThrowable(e);<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="和-的区别是什么？"><a href="#和-的区别是什么？" class="headerlink" title="#{}和${}的区别是什么？"></a>#{}和${}的区别是什么？</h2><ul>
+<li><code>$&#123;&#125;</code>是文件中的变量占位符，它可以用于标签属性值和内部，属于静态文本替换，比如是Properties文件中的变量占位符，它可以用于标签属性值和sql内部，属于静态文本替换，比如<code>$&#123;driver&#125;</code>会被静态替换为com.mysql.jdbc.Driver。</li>
+<li>#{}是 sql 的参数占位符，MyBatis 会将 sql 中的#{}替换为?号，在 sql 执行前会使用 PreparedStatement 的参数设置方法，按序给 sql 的?号占位符设置参数值，比如 ps.setInt(0, parameterValue).</li>
+<li>不转义字符串，有风险，同时存在sql注入.</li>
+</ul>
+<h2 id="📓Xml-映射文件中，除了常见的-select-insert-updae-delete-标签之外，还有哪些标签？"><a href="#📓Xml-映射文件中，除了常见的-select-insert-updae-delete-标签之外，还有哪些标签？" class="headerlink" title="📓Xml 映射文件中，除了常见的 select|insert|updae|delete 标签之外，还有哪些标签？"></a>📓Xml 映射文件中，除了常见的 select|insert|updae|delete 标签之外，还有哪些标签？</h2><p><code>&lt;resultMap&gt;、&lt;parameterMap&gt;、&lt;sql&gt;、&lt;include&gt;、&lt;selectKey&gt;</code>，加上动态 sql 的 9 个标签，trim|where|set|foreach|if|choose|when|otherwise|bind等，其中为 sql 片段标签，通过标签引入 sql 片段</p>
+<h2 id="📓通常一个-Xml-映射文件，都会写一个-Dao-接口与之对应，请问，这个-Dao-接口的工作原理是什么？Dao-接口里的方法，参数不同时，方法能重载吗？"><a href="#📓通常一个-Xml-映射文件，都会写一个-Dao-接口与之对应，请问，这个-Dao-接口的工作原理是什么？Dao-接口里的方法，参数不同时，方法能重载吗？" class="headerlink" title="📓通常一个 Xml 映射文件，都会写一个 Dao 接口与之对应，请问，这个 Dao 接口的工作原理是什么？Dao 接口里的方法，参数不同时，方法能重载吗？"></a>📓通常一个 Xml 映射文件，都会写一个 Dao 接口与之对应，请问，这个 Dao 接口的工作原理是什么？Dao 接口里的方法，参数不同时，方法能重载吗？</h2><ul>
+<li>在 MyBatis 中，每一个<code>&lt;select&gt;、&lt;insert&gt;、&lt;update&gt;、&lt;delete&gt;</code>标签，都会被解析为带有Id信息的一个个MappedStatement对象。</li>
+<li>Mapper接口是没有实现类的，当调用接口方法时，接口全限名+方法名拼接字符串作为 key 值，可唯一定位一个MappedStatement。举例：com.mybatis3.mappers.StudentDao.findStudentById，可以唯一找到 namespace 为com.mybatis3.mappers.StudentDao下面id &#x3D; findStudentById的MappedStatement。</li>
+<li>Dao 接口里的方法，是不能重载的，因为是全限名+方法名的保存和寻找策略。</li>
+<li>Dao 接口的工作原理是 JDK 动态代理，MyBatis 运行时会使用 JDK 动态代理为 Dao 接口生成代理 proxy 对象，代理对象 proxy 会拦截接口方法，转而执行MappedStatement所代表的 sql，然后将 sql 执行结果返回。</li>
+</ul>
+<h2 id="📓MyBatis的分页"><a href="#📓MyBatis的分页" class="headerlink" title="📓MyBatis的分页"></a>📓MyBatis的分页</h2><p>MyBatis的分页有两种，一种是使用 RowBounds 对象进行分页，另一种是使用PageHelper进行分页</p>
+<ul>
+<li>使用 RowBounds 对象分页，它是针对 ResultSet 结果集执行的内存分页，而非物理分页，对于数据量大的情况，使用这种分页方式会浪费内存</li>
+<li>使用PageHelper 进行分页，它是在StatementHandler之前进行拦截，对MappedStatement进行分页sql的拼接操作，PageHelper只对紧跟着的第一个SQL语句起作用.</li>
+<li>另外可以使用mybatis插件，声明拦截器进行sql的处理</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Intercepts(&#123;</span><br><span class="hljs-meta">      @Signature(type = Executor.class,</span><br><span class="hljs-meta">              method = &quot;query&quot;,</span><br><span class="hljs-meta">              args = &#123;MappedStatement.class, Object.class, RowBounds.class, ResultHandler.class,</span><br><span class="hljs-meta">                      CacheKey.class, BoundSql.class&#125;),</span><br><span class="hljs-meta">      @Signature(type = Executor.class,</span><br><span class="hljs-meta">              method = &quot;query&quot;,</span><br><span class="hljs-meta">              args = &#123;MappedStatement.class, Object.class, RowBounds.class, ResultHandler.class&#125;)</span><br><span class="hljs-meta">&#125;)</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">DataPermissionInterceptor</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Interceptor</span>  &#123;&#125;  <br></code></pre></td></tr></table></figure>
+
+<h2 id="📓MyBatis-是如何将-sql-执行结果封装为目标对象并返回的？都有哪些映射形式？"><a href="#📓MyBatis-是如何将-sql-执行结果封装为目标对象并返回的？都有哪些映射形式？" class="headerlink" title="📓MyBatis 是如何将 sql 执行结果封装为目标对象并返回的？都有哪些映射形式？"></a>📓MyBatis 是如何将 sql 执行结果封装为目标对象并返回的？都有哪些映射形式？</h2><p>第一种是使用标签，逐一定义列名和对象属性名之间的映射关系。第二种是使用 sql 列的别名功能，将列别名书写为对象属性名，比如 T_NAME AS NAME，对象属性名一般是 name，小写，但是列名不区分大小写</p>
+<h2 id="📓MyBatis-的关联查询"><a href="#📓MyBatis-的关联查询" class="headerlink" title="📓MyBatis 的关联查询"></a>📓MyBatis 的关联查询</h2><p>关联对象查询，有两种实现方式：</p>
+<ol>
+<li>一种是使用嵌套查询，在resultMap中使用association标签关联嵌套查询的sql语句。<ul>
+<li><code>&lt;association property=&quot;way&quot; column=&quot;wayId&quot; javaType=&quot;com.whx.bus.entity.Way&quot; select=&quot;selectWayById&quot;&gt;</code></li>
+</ul>
+</li>
+<li>另一种是使用 标签指定resultMapId，将关联查询的记录映射到集合List中 - 去重复的原理是标签内的子标签，指定了唯一确定一条记录的 id 列，MyBatis 根据列值来完成 100 条记录的去重复功能，可以有多个，代表了联合主键的语意。</li>
+</ol>
+<h2 id="📓MyBatis-的-Xml-映射文件中，不同的-Xml-映射文件，id-是否可以重复？"><a href="#📓MyBatis-的-Xml-映射文件中，不同的-Xml-映射文件，id-是否可以重复？" class="headerlink" title="📓MyBatis 的 Xml 映射文件中，不同的 Xml 映射文件，id 是否可以重复？"></a>📓MyBatis 的 Xml 映射文件中，不同的 Xml 映射文件，id 是否可以重复？</h2><p>不同的 Xml 映射文件，如果配置了 namespace,那么 id 可以重复；如果没有配置 namespace，那么 id 不能重复</p>
+<h2 id="📓MyBatis-都有哪些-Executor-执行器？它们之间的区别是什么？"><a href="#📓MyBatis-都有哪些-Executor-执行器？它们之间的区别是什么？" class="headerlink" title="📓MyBatis 都有哪些 Executor 执行器？它们之间的区别是什么？"></a>📓MyBatis 都有哪些 Executor 执行器？它们之间的区别是什么？</h2><p>MyBatis 有三种基本的 Executor 执行器，SimpleExecutor、ReuseExecutor、BatchExecutor。</p>
+<ul>
+<li><strong>SimpleExecutor</strong>：每执行一次 update 或 select，就开启一个 Statement 对象，用完立刻关闭 Statement 对象。</li>
+<li><strong>ReuseExecutor</strong>：执行 update 或 select，以 sql 作为 key 查找 Statement 对象，存在就使用，不存在就创建，用完后，不关闭 Statement 对象，而是放置于 Map&lt;String, Statement&gt;内，供下一次使用。简言之，就是重复使用 Statement 对象。</li>
+<li><strong>BatchExecutor</strong>：执行 update（没有 select，JDBC 批处理不支持 select），将所有 sql 都添加到批处理中（addBatch()），等待统一执行（executeBatch()），它缓存了多个 Statement 对象，每个 Statement 对象都是 addBatch()完毕后，等待逐一执行 executeBatch()批处理。与 JDBC 批处理相同。</li>
+<li>作用范围：Executor 的这些特点，都严格限制在 SqlSession 生命周期范围内。</li>
+<li>Mybatis的默认执行器是SimpleExecutor，需要配置在创建SqlSession对象的时候指定执行器的类型即可。</li>
+</ul>
+<h2 id="📓MyBatis-xml文件与内部数据结构之间的关系？"><a href="#📓MyBatis-xml文件与内部数据结构之间的关系？" class="headerlink" title="📓MyBatis xml文件与内部数据结构之间的关系？"></a>📓MyBatis xml文件与内部数据结构之间的关系？</h2><p><code>&lt;resultMap&gt;</code>标签会被解析为 ResultMap 对象，其每个子元素会被解析为 ResultMapping 对象。</p>
+<p>每一个<code>&lt;select&gt;、&lt;insert&gt;、&lt;update&gt;、&lt;delete&gt;</code>标签均会被解析为 MappedStatement 对象。</p>
+<p>标签内的 sql 会被解析为 BoundSql 对象。</p>
+<h2 id="📓为什么说-MyBatis-是半自动-ORM-映射工具？它与全自动的区别在哪里？"><a href="#📓为什么说-MyBatis-是半自动-ORM-映射工具？它与全自动的区别在哪里？" class="headerlink" title="📓为什么说 MyBatis 是半自动 ORM 映射工具？它与全自动的区别在哪里？"></a>📓为什么说 MyBatis 是半自动 ORM 映射工具？它与全自动的区别在哪里？</h2><p>Hibernate 属于全自动 ORM 映射工具，使用 Hibernate 查询关联对象或者关联集合对象时，可以根据对象关系模型直接获取</p>
+<p>而 MyBatis 在查询关联对象或关联集合对象时，需要手动编写 sql 来完成，所以，称之为半自动 ORM 映射工具。</p>
+<h2 id="📓mybatis与Hibernate区别"><a href="#📓mybatis与Hibernate区别" class="headerlink" title="📓mybatis与Hibernate区别"></a>📓mybatis与Hibernate区别</h2><ol>
+<li>编写sql方面：hibernate不需要自己写sql语句，只需要写hql语句。而mybatis需要自己在配置文件中写sql语句，对开发人员的sql要求较高。</li>
+<li>sql优化方面：由于hibernate自动生成sql语句，生成的语句开发人员不易优化。而mybatis的sql完全体现在配置文件中，就便于优化。</li>
+<li>数据库迁移方面：由于hibernate的sql是自动生成的，会根据不同的数据库生成对应的语法，迁移性较高。而mybatis的因为都是写在配置文件，迁移数据库，就可能造成语法不支持的情况。</li>
+<li>日志方面：hibernate拥有完整的日志系统，包括：sql记录、关系异常、优化警告、缓存提示、脏数据警告等。而mybatis仅有基本的记录功能。</li>
+<li>缓存方面：hibernate有更好的二级缓存机制，可以使用第三方缓存。而mybatis支持两级缓存，实际应用中应用性不高。<ul>
+<li>mybatis一级缓存sqlSession级的缓存。二级缓存Mapper级别的缓存。</li>
+<li>hibernate一级缓存session级别的。Hibernate二级缓存是SessionFactory级的缓存。 SessionFactory的缓存分为内置缓存和外置缓存</li>
+</ul>
+</li>
+</ol>
+<h2 id="📓mybatis的一二级缓存"><a href="#📓mybatis的一二级缓存" class="headerlink" title="📓mybatis的一二级缓存"></a>📓mybatis的一二级缓存</h2><p>一级缓存的作用域是SQlSession, Mabits默认开启一级缓存。 在同一个SqlSession中，执行相同的SQL查询时；第一次会去查询数据库，并写在缓存中，第二次会直接从缓存中取。 当执行SQL时候两次查询中间发生了增删改的操作，则SQLSession的缓存会被清空。</p>
+<ul>
+<li>Mybatis的内部缓存使用一个HashMap，key为Statement Id + Offset + Limit + Sql + Params语句。Value为查询出来的结果集映射成的java对象。 SqlSession执行insert、update、delete等操作commit后会清空该SQLSession缓存。<ul>
+<li>① select * from table limit 2,1; &#x2F;&#x2F;含义是跳过2条取出1条数据</li>
+<li>② select * from table limit 2 offset 1; &#x2F;&#x2F;含义是从第1条数据开始取出2条数据,limit后面跟的是2条数据,offset后面是从第1条开始读取,即读取第2,3条。</li>
+</ul>
+</li>
+<li>一级缓存脏读：对于不同的sqlsession A与B, A做update操作，只能刷新A自己的一级缓存，无法刷新B的一级缓存。所以，如果A与B操作同一条记录，就会有脏读。<ul>
+<li>一级缓存最大范围是SqlSession内部，有多个SqlSession或者分布式的环境下，数据库写操作会引起脏数据，建议设定缓存级别为Statement。</li>
+</ul>
+</li>
+</ul>
+<p>二级缓存作用域是Mapper级别的，默认是没有开启。MyBatis的二级缓存相对于一级缓存来说，实现了SqlSession之间缓存数据的共享，同时粒度更加的细，能够到namespace级别。</p>
+<ul>
+<li><p>二级缓存脏读：在两个不同的mapper中都涉及到</p>
+<p>同一个表</p>
+<p>的增删改查操作，当其中一个mapper对这张表进行查询操作，此时另一个mapper进行了更新操作刷新缓存，然后第一个mapper又查询了一次，那么这次查询出的数据是脏数据。</p>
+<ul>
+<li>MyBatis在多表查询时，极大可能会出现脏数据，有设计上的缺陷，安全使用二级缓存的条件比较苛刻。</li>
+</ul>
+</li>
+<li><p>mybatis：查询时，先进行二级缓存执行流程后，就会进入一级缓存的执行流程。（mapper级别的缓存可能是其他旧的sqlsession更新的，自己的sqlsession若存在缓存，则为较新的缓存。）</p>
+</li>
+</ul>
+<p>总结：在分布式环境下，由于默认的MyBatis Cache实现都是基于本地的，分布式环境下必然会出现读取到脏数据</p>
+<ul>
+<li>美团技术团队mybatis缓存分析：<a target="_blank" rel="noopener" href="https://tech.meituan.com/2018/01/19/mybatis-cache.html">https://tech.meituan.com/2018/01/19/mybatis-cache.html</a></li>
+</ul>
+<h2 id="📓千万级数据查询方案—-流式查询"><a href="#📓千万级数据查询方案—-流式查询" class="headerlink" title="📓千万级数据查询方案—- 流式查询"></a>📓千万级数据查询方案—- 流式查询</h2><ul>
+<li>流式查询指的是查询成功后不是返回一个集合而是返回一个迭代器，应用每次从迭代器取一条查询结果。流式查询的好处是能够降低内存使用。</li>
+<li>流式查询的过程当中，数据库连接是保持打开状态的，因此要注意的是：执行一个流式查询后，数据库访问框架（mybatis）就不负责关闭数据库连接了，需要应用在取完数据后自己关闭。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// Cursor 还提供了三个方法：</span><br><br><span class="hljs-comment">// 1. isOpen()：用于在取数据之前判断 Cursor 对象是否是打开状态。只有当打开时 Cursor 才能取数据；</span><br><span class="hljs-comment">// 2. isConsumed()：用于判断查询结果是否全部取完。</span><br><span class="hljs-comment">// 3. getCurrentIndex()：返回已经获取了多少条数据</span><br><br><span class="hljs-comment">// 正常使用方案1 , 使用sql session</span><br><span class="hljs-keyword">try</span> (<br>        <span class="hljs-type">SqlSession</span> <span class="hljs-variable">sqlSession</span> <span class="hljs-operator">=</span> sqlSessionFactory.openSession();  <span class="hljs-comment">// 1</span><br>        Cursor&lt;Foo&gt; cursor = <br>              sqlSession.getMapper(FooMapper.class).scan(limit)   <span class="hljs-comment">// 2</span><br>    ) &#123;<br>        cursor.forEach(foo -&gt; &#123; &#125;);<br>    &#125;<br>&#125;<br><span class="hljs-comment">// 方案2，使用编程式事务 TransactionTemplate</span><br><span class="hljs-comment">// 方案3，使用声明式事务 @Transaction</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="📓MyBatis的设计模式"><a href="#📓MyBatis的设计模式" class="headerlink" title="📓MyBatis的设计模式"></a>📓MyBatis的设计模式</h2><ul>
+<li><p>Builder模式，例如SqlSessionFactoryBuilder、XMLConfigBuilder、XMLMapperBuilder、XMLStatementBuilder、CacheBuilder；</p>
+<ul>
+<li><blockquote>
+<p>SqlSessionFactoryBuilder会调用XMLConfigBuilder读取所有的MybatisMapConfig.xml和所有的*Mapper.xml文件，构建Mybatis运行的核心对象Configuration对象，然后将该Configuration对象作为参数构建一个SqlSessionFactory对象。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>模板方法模式，例如BaseExecutor和SimpleExecutor，还有BaseTypeHandler和所有的子类例如IntegerTypeHandler；</p>
+</li>
+<li><p>工厂模式，例如SqlSessionFactory、ObjectFactory、MapperProxyFactory；</p>
+</li>
+<li><p>单例模式，例如ErrorContext和LogFactory；</p>
+</li>
+<li><p>代理模式，Mybatis实现的核心，比如MapperProxy、ConnectionLogger，用的jdk的动态代理；还有executor.loader包使用了cglib或者javassist达到延迟加载的效果；</p>
+</li>
+<li><p>组合模式，例如SqlNode和各个子类ChooseSqlNode等；</p>
+</li>
+<li><p>适配器模式，例如Log的Mybatis接口和它对jdbc、log4j等各种日志框架的适配实现；</p>
+</li>
+<li><p>装饰者模式，例如Cache包中的cache.decorators子包中等各个装饰者的实现；</p>
+</li>
+<li><p>迭代器模式，例如迭代器模式PropertyTokenizer；</p>
+</li>
+</ul>
+<h2 id="📓-Param的作用"><a href="#📓-Param的作用" class="headerlink" title="📓@Param的作用"></a>📓@Param的作用</h2><p>用来指定xml中<code>#&#123;&#125;</code> 指定的参数名。</p>
+<ul>
+<li>对于常规的参数映射，参数解析直接按照名称解析对应的K-V对应关系。</li>
+<li>对于对象类型传递，对于单个对象参数传递，则直接解析成class，xml文件需要直接指定class中的字段<code>demoId</code>，不能用参数前缀名<code>demo.demoId</code></li>
+<li>对于多对象参数的传递，参数可以使用别名代替。</li>
+<li>参数解析方法：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">MapperMethod</span>&#123;<br>    <span class="hljs-keyword">public</span> Object <span class="hljs-title function_">convertArgsToSqlCommandParam</span><span class="hljs-params">(Object[] args)</span> &#123;<br>      <span class="hljs-keyword">return</span> paramNameResolver.getNamedParams(args);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>参数获取方法</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">MetaObject</span>&#123;<br>    <span class="hljs-keyword">public</span> Object <span class="hljs-title function_">getValue</span><span class="hljs-params">(String name)</span> &#123;<br>        <span class="hljs-type">PropertyTokenizer</span> <span class="hljs-variable">prop</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">PropertyTokenizer</span>(name);<br>        <span class="hljs-keyword">if</span> (prop.hasNext()) &#123;<br>              <span class="hljs-type">MetaObject</span> <span class="hljs-variable">metaValue</span> <span class="hljs-operator">=</span> metaObjectForProperty(prop.getIndexedName());<br>              <span class="hljs-keyword">if</span> (metaValue == SystemMetaObject.NULL_META_OBJECT) &#123;<br>                    <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>              &#125; <span class="hljs-keyword">else</span> &#123;<br>                    <span class="hljs-keyword">return</span> metaValue.getValue(prop.getChildren());<br>              &#125;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-keyword">return</span> objectWrapper.get(prop);<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h1 id="💠Drools规则引擎"><a href="#💠Drools规则引擎" class="headerlink" title="💠Drools规则引擎"></a>💠Drools规则引擎</h1><h2 id="📓使用场景"><a href="#📓使用场景" class="headerlink" title="📓使用场景"></a>📓使用场景</h2><p>对于多分支的if else，可以使用策略模式进行优化。但是对于过多分支的情况，会使得策略过多，难以维护。</p>
+<p>在该种情况下，需求点为以下四点：</p>
+<ul>
+<li>第一，我们要简化if else结构,让业务逻辑和数据分离！</li>
+<li>第二，分离出的业务逻辑必须要易于编写，至少单独编写这些业务逻辑，要比写代码快！</li>
+<li>第三，分离出的业务逻辑必须要比原来的代码更容易读懂！</li>
+<li>第四，分离出的业务逻辑必须比原来的易于维护，至少改动这些逻辑，应用程序不用重启！</li>
+</ul>
+<p>规则引擎满足以上的需求点，具体体现在如下： <a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/rbmonster/file-storage/main/learning-note/other/ruleEnginExample.jpg"><img src="https://raw.githubusercontent.com/rbmonster/file-storage/main/learning-note/other/ruleEnginExample.jpg" srcset="/img/loading.gif" lazyload alt="image"></a></p>
+<p>参考资料：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/rjzheng/p/10996186.html">规则引擎的使用场景</a></p>
+<p>使用规则引擎可以给系统带来如下优势：</p>
+<ul>
+<li>高灵活性：在规则保存在知识库中，可以在规则变动轻易做出修改。</li>
+<li>容易掌控：规则比过程代码更易于理解，因此可以有效地来弥补业务分析师和开发人员之间的沟通问题。</li>
+<li>降低复杂度：在程序中编写大量的判断条件，很可能是会造成一场噩梦。使用规则引擎却能够通过一致的表示形式，更好的处理日益复杂的业务逻辑。</li>
+<li>可重用性：规则集中管理，可提高业务的规则的可重用性。而且，传统的代码程序通常会添加不必要的变数，很然进行重复利用。</li>
+</ul>
+<blockquote>
+<p>需要留意的是，在业务规则没有太多变动，业务规则比较简单的情况下，是没有必要使用规则引擎的。</p>
+</blockquote>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/java%E5%85%AB%E8%82%A1%E6%96%87/" class="category-chain-item">java八股文</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%85%AB%E8%82%A1%E6%96%87/">#八股文</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>MyBatis</div>
+      <div>http://example.com/2022/09/04/MyBatis/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>liziyuan</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年9月4日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/09/04/Json%E5%BA%8F%E5%88%97%E5%8C%96/" title="JSON序列化">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">JSON序列化</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/09/04/Servlet/" title="Servlet">
+                        <span class="hidden-mobile">Servlet</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://venom-lemon.github.io/whitehmoob/" target="_blank" rel="nofollow noopener"><span>nav</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/Venom-lemon" target="_blank" rel="nofollow noopener"><span>liziyuan</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
