@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/7.jpg">
 <meta property="article:published_time" content="2022-09-04T12:12:24.000Z">
-<meta property="article:modified_time" content="2022-09-04T09:44:13.157Z">
+<meta property="article:modified_time" content="2022-09-04T10:18:01.417Z">
 <meta property="article:author" content="liziyuan">
 <meta property="article:tag" content="八股文">
 <meta name="twitter:card" content="summary_large_image">
@@ -221,7 +221,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          32k 字
+          31k 字
         
       </span>
     
@@ -232,7 +232,7 @@
         
         
         
-          264 分钟
+          261 分钟
         
       </span>
     
@@ -432,7 +432,7 @@
 <li>基本类型由小到大，可以自动转换，但是由大到小，则需要强制类型转换。</li>
 </ul>
 </blockquote>
-<h3 id="orange-book-基础数据类型"><a href="#orange-book-基础数据类型" class="headerlink" title=":orange_book:基础数据类型"></a>:orange_book:基础数据类型</h3><table>
+<h3 id="📙基础数据类型"><a href="#📙基础数据类型" class="headerlink" title="📙基础数据类型"></a>📙基础数据类型</h3><table>
 <thead>
 <tr>
 <th align="left">基本类型</th>
@@ -508,8 +508,8 @@
 <td>Character</td>
 </tr>
 </tbody></table>
-<h3 id="orange-book-基础类型的后缀："><a href="#orange-book-基础类型的后缀：" class="headerlink" title=":orange_book:基础类型的后缀："></a>:orange_book:<strong>基础类型的后缀：</strong></h3><p>long ： l 或 L<br>float： f 或 F；<br>double： d 或 D</p>
-<h3 id="orange-book-隐式转换"><a href="#orange-book-隐式转换" class="headerlink" title=":orange_book:隐式转换"></a>:orange_book:隐式转换</h3><h4 id="📚复合运算符的隐式转换"><a href="#📚复合运算符的隐式转换" class="headerlink" title="📚复合运算符的隐式转换"></a>📚复合运算符的隐式转换</h4><ul>
+<h3 id="📙基础类型的后缀："><a href="#📙基础类型的后缀：" class="headerlink" title="📙基础类型的后缀："></a>📙<strong>基础类型的后缀：</strong></h3><p>long ： l 或 L<br>float： f 或 F；<br>double： d 或 D</p>
+<h3 id="📙隐式转换"><a href="#📙隐式转换" class="headerlink" title="📙隐式转换"></a>📙隐式转换</h3><h4 id="📚复合运算符的隐式转换"><a href="#📚复合运算符的隐式转换" class="headerlink" title="📚复合运算符的隐式转换"></a>📚复合运算符的隐式转换</h4><ul>
 <li>复合运算符（+&#x3D;、-&#x3D;、*&#x3D;、&#x2F;&#x3D;、%&#x3D;）是可以将右边表达式的类型自动强制转换成左边的类型</li>
 </ul>
 <h4 id="📚整形字面常量隐式转换的限制"><a href="#📚整形字面常量隐式转换的限制" class="headerlink" title="📚整形字面常量隐式转换的限制"></a>📚整形字面常量隐式转换的限制</h4><ul>
@@ -531,7 +531,7 @@
 <li>运算结果的类型必须是int类型或int类型以上。</li>
 <li>最高类型低于int类型的，运算结果都为int类型。否则，运算结果与表达式中最高类型一致。</li>
 </ul>
-<h3 id="orange-book-包装类型"><a href="#orange-book-包装类型" class="headerlink" title=":orange_book:包装类型"></a>:orange_book:包装类型</h3><blockquote>
+<h3 id="📙包装类型"><a href="#📙包装类型" class="headerlink" title="📙包装类型"></a>📙包装类型</h3><blockquote>
 <p>基本数据类型在声明时系统会自动给它分配空间，而引用类型声明时只是分配了引用空间， 必须通过实例化开辟数据空间之后才可以赋值。</p>
 </blockquote>
 <p>基本类型都有对应的包装类型，基本类型与其对应的包装类型之间的赋值使用自动装箱与拆箱完成。</p>
@@ -555,7 +555,7 @@
 <blockquote>
 <p>valueOf() 方法的实现比较简单，就是先判断值是否在缓存池中，如果在的话就直接返回缓存池的内容</p>
 </blockquote>
-<h3 id="orange-book-自动拆装箱"><a href="#orange-book-自动拆装箱" class="headerlink" title=":orange_book:自动拆装箱"></a>:orange_book:自动拆装箱</h3><blockquote>
+<h3 id="📙自动拆装箱"><a href="#📙自动拆装箱" class="headerlink" title="📙自动拆装箱"></a>📙自动拆装箱</h3><blockquote>
 <p>装箱就是自动将基本数据类型转换为包装器类型（int–&gt;Integer）；调用方法：Integer的 valueOf(int) 方法<br>拆箱就是自动将包装器类型转换为基本数据类型（Integer–&gt;int）。调用方法：Integer的 intValue方法</p>
 </blockquote>
 <ol>
@@ -564,7 +564,7 @@
 <li>两个基本型的封装型进行equals()比较，首先equals()会比较类型，如果类型相同，则继续比较值，如果值也相同，返回true</li>
 <li>基本型封装类型调用equals(),但是参数是基本类型，这时候，先会进行自动装箱，基本型转换为其封装类型，再进行比较。</li>
 </ol>
-<h3 id="orange-book-缓存池"><a href="#orange-book-缓存池" class="headerlink" title=":orange_book:缓存池"></a>:orange_book:缓存池</h3><p>包装类型内存使用 private static class IntegerCache，声明一个内部使用的缓存池</p>
+<h3 id="📙缓存池"><a href="#📙缓存池" class="headerlink" title="📙缓存池"></a>📙缓存池</h3><p>包装类型内存使用 private static class IntegerCache，声明一个内部使用的缓存池</p>
 <blockquote>
 <p>如Integer中有个静态内部类IntegerCache，里面有个cache[],也就是Integer常量池，常量池的大小为一个字节（-128~127）<br>为啥把缓存设置为[-128，127]区间？性能和资源之间的权衡。</p>
 </blockquote>
@@ -583,7 +583,7 @@
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">float</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> <span class="hljs-number">1.0f</span> - <span class="hljs-number">0.9f</span>;<br><span class="hljs-type">float</span> <span class="hljs-variable">b</span> <span class="hljs-operator">=</span> <span class="hljs-number">0.9f</span> - <span class="hljs-number">0.8f</span>;<br>System.out.println(a);<span class="hljs-comment">// 0.100000024</span><br>System.out.println(b);<span class="hljs-comment">// 0.099999964</span><br>System.out.println(a == b);<span class="hljs-comment">// false</span><br></code></pre></td></tr></table></figure>
 
-<h2 id="notebook-字符串"><a href="#notebook-字符串" class="headerlink" title=":notebook:字符串"></a>:notebook:字符串</h2><h3 id="orange-book-String"><a href="#orange-book-String" class="headerlink" title=":orange_book:String"></a>:orange_book:String</h3><p>String 被声明为 final，因此它不可被继承</p>
+<h2 id="notebook-字符串"><a href="#notebook-字符串" class="headerlink" title=":notebook:字符串"></a>:notebook:字符串</h2><h3 id="📙String"><a href="#📙String" class="headerlink" title="📙String"></a>📙String</h3><p>String 被声明为 final，因此它不可被继承</p>
 <ul>
 <li>Java 8 中，String 内部使用 char 数组存储数据。</li>
 <li>Java 9 之后，String 类的实现改用 byte 数组存储字符串，同时使用 coder 来标识使用了哪种编码。</li>
@@ -619,10 +619,10 @@
 <li>直接使用双引号声明出来的String对象会直接存储在常量池中。</li>
 <li>如果不是用双引号声明的String对象,可以使用 String 提供的 intern 方法。 String.intern() 是一个 Native 方法，它的作用是： 如果运行时常量池中已经包含一个等于此 String 对象内容的字符串，则返回常量池中该字符串的引用； 如果没有，则在常量池中创建与此 String 内容相同的字符串，并返回常量池中创建的字符串的引用。</li>
 </ul>
-<h3 id="orange-book-StringBuffer"><a href="#orange-book-StringBuffer" class="headerlink" title=":orange_book:StringBuffer"></a>:orange_book:StringBuffer</h3><p><code>StringBuffer</code>是可变类，对应的字符串的改变不会产生新的对象。</p>
+<h3 id="📙StringBuffer"><a href="#📙StringBuffer" class="headerlink" title="📙StringBuffer"></a>📙StringBuffer</h3><p><code>StringBuffer</code>是可变类，对应的字符串的改变不会产生新的对象。</p>
 <p><code>StringBuffer</code>的读写方法都使用了synchronized修饰，同一时间只有一个线程进行操作，所以是线程安全的</p>
-<h3 id="orange-book-StringBuilder"><a href="#orange-book-StringBuilder" class="headerlink" title=":orange_book:StringBuilder"></a>:orange_book:StringBuilder</h3><p><code>StringBuilder</code>是可变类，对应的字符串的改变不会产生新的对象（线程不安全）。</p>
-<h3 id="orange-book-三者比较"><a href="#orange-book-三者比较" class="headerlink" title=":orange_book:三者比较"></a>:orange_book:三者比较</h3><p>String、<code>StringBuilder</code>、<code>StringBuffer</code>三者的执行效率：<br><code>StringBuilder </code>&gt; <code>StringBuffer</code> &gt; String。这个实验结果是相对而言的，不一定在所有情况下都是这样。</p>
+<h3 id="📙StringBuilder"><a href="#📙StringBuilder" class="headerlink" title="📙StringBuilder"></a>📙StringBuilder</h3><p><code>StringBuilder</code>是可变类，对应的字符串的改变不会产生新的对象（线程不安全）。</p>
+<h3 id="📙三者比较"><a href="#📙三者比较" class="headerlink" title="📙三者比较"></a>📙三者比较</h3><p>String、<code>StringBuilder</code>、<code>StringBuffer</code>三者的执行效率：<br><code>StringBuilder </code>&gt; <code>StringBuffer</code> &gt; String。这个实验结果是相对而言的，不一定在所有情况下都是这样。</p>
 <blockquote>
 <p>比如String str &#x3D; “hello”+ “world”的效率就比 <code>StringBuilder st = new StringBuilder().append(&quot;hello&quot;).append(&quot;world&quot;)</code>要高。</p>
 </blockquote>
@@ -686,7 +686,7 @@
 </ol>
 <h2 id="📓instanceof-关键字的作用"><a href="#📓instanceof-关键字的作用" class="headerlink" title="📓instanceof 关键字的作用"></a>📓instanceof 关键字的作用</h2><p>instanceof 是 Java 的一个二元操作符，类似于 &#x3D;&#x3D;，&gt;，&lt; 等操作符。</p>
 <p>instanceof 是 Java 的保留关键字。它的作用是测试它左边的对象是否是它右边的类的实例，返回 boolean 的数据类型。</p>
-<h2 id="📓final、finally和finalize的区别"><a href="#📓final、finally和finalize的区别" class="headerlink" title="📓final、finally和finalize的区别"></a>📓final、finally和finalize的区别</h2><h3 id="orange-book-final-关键字"><a href="#orange-book-final-关键字" class="headerlink" title=":orange_book:final 关键字"></a>:orange_book:final 关键字</h3><h4 id="📚final-类"><a href="#📚final-类" class="headerlink" title="📚final 类"></a>📚<strong>final 类</strong></h4><p>final 类不能被继承，没有类能够继承 final 类的任何特性。</p>
+<h2 id="📓final、finally和finalize的区别"><a href="#📓final、finally和finalize的区别" class="headerlink" title="📓final、finally和finalize的区别"></a>📓final、finally和finalize的区别</h2><h3 id="📙final-关键字"><a href="#📙final-关键字" class="headerlink" title="📙final 关键字"></a>📙final 关键字</h3><h4 id="📚final-类"><a href="#📚final-类" class="headerlink" title="📚final 类"></a>📚<strong>final 类</strong></h4><p>final 类不能被继承，没有类能够继承 final 类的任何特性。</p>
 <h4 id="📚final-方法"><a href="#📚final-方法" class="headerlink" title="📚final 方法"></a><strong>📚final 方法</strong></h4><p>类中的 final 方法可以被子类继承，但是不能被子类修改，声明 final 方法的主要目的是防止该方法的内容被修改。</p>
 <h4 id="📚final-变量"><a href="#📚final-变量" class="headerlink" title="📚final 变量"></a>📚final 变量</h4><blockquote>
 <p>final变量能被显式地初始化并且只能初始化一次。</p>
@@ -695,9 +695,9 @@
 <li><strong>修饰引用类型</strong>：被声明为 final 的对象的引用不能指向不同的对象。但是 final 对象里的数据可以被改变。也就是说 final 对象的引用不能改变，但是里面的值可以改变。</li>
 <li><strong>修饰基础数据类型</strong>：final 使数值不变；</li>
 </ul>
-<h3 id="orange-book-finally-关键字"><a href="#orange-book-finally-关键字" class="headerlink" title=":orange_book:finally 关键字"></a>:orange_book:finally 关键字</h3><p>在异常处理的时候，提供 finally 块来执行任何的清除操作。如果抛出一个异常，那么相匹配的 catch 字句就会执行，然后控制就会进入 finally 块，前提是有 finally 块。例如：数据库连接关闭操作上</p>
+<h3 id="📙finally-关键字"><a href="#📙finally-关键字" class="headerlink" title="📙finally 关键字"></a>📙finally 关键字</h3><p>在异常处理的时候，提供 finally 块来执行任何的清除操作。如果抛出一个异常，那么相匹配的 catch 字句就会执行，然后控制就会进入 finally 块，前提是有 finally 块。例如：数据库连接关闭操作上</p>
 <p>　　finally 作为异常处理的一部分，它只能用在 try&#x2F;catch 语句中，并且附带一个语句块，表示这段语句最终一定会被执行（不管有没有抛出异常），经常被用在需要释放资源的情况下。</p>
-<h3 id="orange-book-finalize-关键字"><a href="#orange-book-finalize-关键字" class="headerlink" title=":orange_book:finalize 关键字"></a>:orange_book:finalize 关键字</h3><p>finalize() 是 Object 中的方法，当垃圾回收器将要回收对象所占内存之前被调用，即当一个对象被虚拟机宣告死亡时会先调用它 finalize() 方法，让此对象处理它生前的最后事情（这个对象可以趁这个时机挣脱死亡的命运）。要明白这个问题，先看一下虚拟机是如何判断一个对象该死的。</p>
+<h3 id="📙finalize-关键字"><a href="#📙finalize-关键字" class="headerlink" title="📙finalize 关键字"></a>📙finalize 关键字</h3><p>finalize() 是 Object 中的方法，当垃圾回收器将要回收对象所占内存之前被调用，即当一个对象被虚拟机宣告死亡时会先调用它 finalize() 方法，让此对象处理它生前的最后事情（这个对象可以趁这个时机挣脱死亡的命运）。要明白这个问题，先看一下虚拟机是如何判断一个对象该死的。</p>
 <p>　　可以覆盖此方法来实现对其他资源的回收，例如关闭文件。</p>
 <h2 id="📓transient关键字"><a href="#📓transient关键字" class="headerlink" title="📓transient关键字"></a>📓transient关键字</h2><p>Java 的 transient 关键字，只需要实现 Serilizable 接口，将不需要序列化的属性前添加关键字transient，序列化对象的时候，这个属性就不会序列化到指定的目的地中。</p>
 <h2 id="📓native关键字"><a href="#📓native关键字" class="headerlink" title="📓native关键字"></a>📓native关键字</h2><p>native（即 JNI，Java Native Interface），凡是一种语言，都希望是纯。比如解决某一个方案都喜欢就单单这个语言来写即可。Java 平台有个用户和本地 C 代码进行互操作的 API，称为 Java Native Interface (Java本地接口)。</p>
@@ -852,9 +852,9 @@
 </blockquote>
 </li>
 </ul>
-<h2 id="📓接⼝和抽象类"><a href="#📓接⼝和抽象类" class="headerlink" title="📓接⼝和抽象类"></a>📓接⼝和抽象类</h2><h3 id="orange-book-抽象类"><a href="#orange-book-抽象类" class="headerlink" title=":orange_book:抽象类"></a>:orange_book:抽象类</h3><p>抽象类和抽象方法都使用 abstract 关键字进行声明。如果一个类中包含抽象方法，那么这个类必须声明为抽象类。</p>
+<h2 id="📓接⼝和抽象类"><a href="#📓接⼝和抽象类" class="headerlink" title="📓接⼝和抽象类"></a>📓接⼝和抽象类</h2><h3 id="📙抽象类"><a href="#📙抽象类" class="headerlink" title="📙抽象类"></a>📙抽象类</h3><p>抽象类和抽象方法都使用 abstract 关键字进行声明。如果一个类中包含抽象方法，那么这个类必须声明为抽象类。</p>
 <p>抽象类和普通类最大的区别是，抽象类不能被实例化，只能被继承。</p>
-<h3 id="orange-book-接口"><a href="#orange-book-接口" class="headerlink" title=":orange_book:接口"></a>:orange_book:接口</h3><p>接口是抽象类的延伸，在 Java 8 之前，它可以看成是一个完全抽象的类，也就是说它不能有任何的方法实现。</p>
+<h3 id="📙接口"><a href="#📙接口" class="headerlink" title="📙接口"></a>📙接口</h3><p>接口是抽象类的延伸，在 Java 8 之前，它可以看成是一个完全抽象的类，也就是说它不能有任何的方法实现。</p>
 <ul>
 <li>从 Java 8 开始，接口也可以拥有默认的方法实现</li>
 <li>接口的成员（字段 + 方法）默认都是 public 的，并且不允许定义为 private 或者 protected。</li>
@@ -875,7 +875,7 @@
 <li>抽象类： 拓展继承该抽象类的模块的类的行为功能（开放闭合原则）</li>
 <li>接口：约束继承该接口的类行为（依赖倒置原则）</li>
 </ul>
-<h2 id="📓内部类"><a href="#📓内部类" class="headerlink" title="📓内部类"></a>📓内部类</h2><h3 id="orange-book-成员内部类"><a href="#orange-book-成员内部类" class="headerlink" title=":orange_book:成员内部类"></a>:orange_book:成员内部类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Outer</span>&#123;<span class="hljs-comment">//外部类</span><br>		<span class="hljs-keyword">private</span> <span class="hljs-type">int</span> <span class="hljs-variable">age</span> <span class="hljs-operator">=</span> <span class="hljs-number">99</span>;<br>		<span class="hljs-type">String</span> <span class="hljs-variable">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Coco&quot;</span>;<br>		<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Inner</span>&#123; <span class="hljs-comment">//内部类</span><br>			<span class="hljs-type">String</span> <span class="hljs-variable">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Jayden&quot;</span>;<br>			<span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">show</span><span class="hljs-params">()</span>&#123;<br>				System.out.println(Outer.<span class="hljs-built_in">this</span>.name);<br>				System.out.println(name);<br>				System.out.println(age);<br>			&#125;<br>		&#125;<br>		<span class="hljs-keyword">public</span> Inner <span class="hljs-title function_">getInnerClass</span><span class="hljs-params">()</span>&#123;<br>			<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Inner</span>();<br>		&#125;<br>		<span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span>&#123;<br>			<span class="hljs-type">Outer</span> <span class="hljs-variable">o</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Outer</span>();<br>			<span class="hljs-type">Inner</span> <span class="hljs-variable">in</span> <span class="hljs-operator">=</span> o.<span class="hljs-keyword">new</span> <span class="hljs-title class_">Inner</span>();<br>			in.show();<br>		&#125;<br>	&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="📓内部类"><a href="#📓内部类" class="headerlink" title="📓内部类"></a>📓内部类</h2><h3 id="📙成员内部类"><a href="#📙成员内部类" class="headerlink" title="📙成员内部类"></a>📙成员内部类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Outer</span>&#123;<span class="hljs-comment">//外部类</span><br>		<span class="hljs-keyword">private</span> <span class="hljs-type">int</span> <span class="hljs-variable">age</span> <span class="hljs-operator">=</span> <span class="hljs-number">99</span>;<br>		<span class="hljs-type">String</span> <span class="hljs-variable">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Coco&quot;</span>;<br>		<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Inner</span>&#123; <span class="hljs-comment">//内部类</span><br>			<span class="hljs-type">String</span> <span class="hljs-variable">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Jayden&quot;</span>;<br>			<span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">show</span><span class="hljs-params">()</span>&#123;<br>				System.out.println(Outer.<span class="hljs-built_in">this</span>.name);<br>				System.out.println(name);<br>				System.out.println(age);<br>			&#125;<br>		&#125;<br>		<span class="hljs-keyword">public</span> Inner <span class="hljs-title function_">getInnerClass</span><span class="hljs-params">()</span>&#123;<br>			<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Inner</span>();<br>		&#125;<br>		<span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span>&#123;<br>			<span class="hljs-type">Outer</span> <span class="hljs-variable">o</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Outer</span>();<br>			<span class="hljs-type">Inner</span> <span class="hljs-variable">in</span> <span class="hljs-operator">=</span> o.<span class="hljs-keyword">new</span> <span class="hljs-title class_">Inner</span>();<br>			in.show();<br>		&#125;<br>	&#125;<br></code></pre></td></tr></table></figure>
 
 <ol>
 <li>Inner 类定义在 Outer 类的内部，相当于 Outer 类的一个成员变量的位置，Inner 类可以使用任意访问控制符，如 <strong>public</strong> 、 <strong>protected</strong> 、 <strong>private</strong> 等。</li>
@@ -893,7 +893,7 @@
 <li>外部类是不能直接使用内部类的成员和方法的，可先创建内部类的对象，然后通过内部类的对象来访问其成员变量和方法。</li>
 <li>如果外部类和内部类具有相同的成员变量或方法，内部类默认访问自己的成员变量或方法，如果要访问外部类的成员变量，可以使用 this 关键字,如:Outer.this.name。</li>
 </ol>
-<h3 id="orange-book-静态内部类"><a href="#orange-book-静态内部类" class="headerlink" title=":orange_book:静态内部类"></a>:orange_book:静态内部类</h3><blockquote>
+<h3 id="📙静态内部类"><a href="#📙静态内部类" class="headerlink" title="📙静态内部类"></a>📙静态内部类</h3><blockquote>
 <p> static 修饰的内部类</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Outer</span>&#123;<span class="hljs-comment">//外部类</span><br>			<span class="hljs-keyword">private</span> <span class="hljs-type">int</span> <span class="hljs-variable">age</span> <span class="hljs-operator">=</span> <span class="hljs-number">99</span>;<br>			<span class="hljs-keyword">static</span> <span class="hljs-type">String</span> <span class="hljs-variable">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Coco&quot;</span>;<br>			<span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Inner</span>&#123;<span class="hljs-comment">//静态内部类</span><br>				<span class="hljs-type">String</span> <span class="hljs-variable">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Jayden&quot;</span>;<br>				<span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">show</span><span class="hljs-params">()</span>&#123;<br>					System.out.println(Outer.name);<br>					System.out.println(name);					<br>				&#125;<br>			&#125;<br>			<span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span>&#123;<br>				<span class="hljs-type">Inner</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Inner</span>();<br>				i.show();<br>			&#125;<br>		&#125;<br></code></pre></td></tr></table></figure>
@@ -904,7 +904,7 @@
 <li>如果外部类的静态成员与内部类的成员名称不相同，则可通过“成员名”直接调用外部类的静态成员</li>
 <li>创建静态内部类的对象时，不需要外部类的对象，可以直接创建 内部类 对象名 &#x3D; new 内部类();</li>
 </ol>
-<h3 id="orange-book-方法内部类"><a href="#orange-book-方法内部类" class="headerlink" title=":orange_book:方法内部类"></a>:orange_book:方法内部类</h3><blockquote>
+<h3 id="📙方法内部类"><a href="#📙方法内部类" class="headerlink" title="📙方法内部类"></a>📙方法内部类</h3><blockquote>
 <p>其作用域仅限于方法内，方法外部无法访问该内部类</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Outer</span>&#123;<span class="hljs-comment">//外部类</span><br>		<span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">Show</span><span class="hljs-params">()</span>&#123;<br>			<span class="hljs-keyword">final</span> <span class="hljs-type">int</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> <span class="hljs-number">25</span>;<br>			<span class="hljs-type">int</span> <span class="hljs-variable">b</span> <span class="hljs-operator">=</span> <span class="hljs-number">13</span>;<br>			<span class="hljs-keyword">class</span> <span class="hljs-title class_">Inner</span>&#123;<span class="hljs-comment">//方法内部类</span><br>				<span class="hljs-type">int</span> <span class="hljs-variable">c</span> <span class="hljs-operator">=</span> <span class="hljs-number">2</span>;<br>				<span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">print</span><span class="hljs-params">()</span>&#123;<br>					System.out.println(<span class="hljs-string">&quot;访问外部类:&quot;</span> + a);<br>					System.out.println(<span class="hljs-string">&quot;访问内部类:&quot;</span> + c);<br>				&#125;<br>			&#125;<br>			<span class="hljs-type">Inner</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Inner</span>();<br>			i.print();<br>		&#125;<br>		<span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span>&#123;<br>			<span class="hljs-type">Outer</span> <span class="hljs-variable">o</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Outer</span>();<br>			o.show();<br>		&#125;<br>	&#125;    <br><br></code></pre></td></tr></table></figure>
@@ -917,7 +917,7 @@
 </ul>
 </li>
 </ol>
-<h3 id="orange-book-匿名内部类"><a href="#orange-book-匿名内部类" class="headerlink" title=":orange_book:匿名内部类"></a>:orange_book:匿名内部类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java">  <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">OuterClass</span> &#123;<br>            <span class="hljs-keyword">public</span> InnerClass <span class="hljs-title function_">getInnerClass</span><span class="hljs-params">(<span class="hljs-keyword">final</span> <span class="hljs-type">int</span>   num,String str2)</span>&#123;<br>                <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">InnerClass</span>()&#123; <span class="hljs-comment">//匿名内部类</span><br>                    <span class="hljs-type">int</span> <span class="hljs-variable">number</span> <span class="hljs-operator">=</span> num + <span class="hljs-number">3</span>;<br>                    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">getNumber</span><span class="hljs-params">()</span>&#123;<span class="hljs-comment">//实现抽象方法</span><br>                        <span class="hljs-keyword">return</span> number;<br>                    &#125;<br>                &#125;;        <span class="hljs-comment">/* 注意：分号不能省 */</span><br>            &#125;<br>            <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>                <span class="hljs-type">OuterClass</span> <span class="hljs-variable">out</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">OuterClass</span>();<br>                <span class="hljs-type">InnerClass</span> <span class="hljs-variable">inner</span> <span class="hljs-operator">=</span> out.getInnerClass(<span class="hljs-number">2</span>, <span class="hljs-string">&quot;chenssy&quot;</span>);<br>                System.out.println(inner.getNumber());<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">interface</span> <span class="hljs-title class_">InnerClass</span> &#123; <span class="hljs-comment">//匿名内部类要实现的接口</span><br>            <span class="hljs-type">int</span> <span class="hljs-title function_">getNumber</span><span class="hljs-params">()</span>;<br>        &#125;  <br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="📙匿名内部类"><a href="#📙匿名内部类" class="headerlink" title="📙匿名内部类"></a>📙匿名内部类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java">  <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">OuterClass</span> &#123;<br>            <span class="hljs-keyword">public</span> InnerClass <span class="hljs-title function_">getInnerClass</span><span class="hljs-params">(<span class="hljs-keyword">final</span> <span class="hljs-type">int</span>   num,String str2)</span>&#123;<br>                <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">InnerClass</span>()&#123; <span class="hljs-comment">//匿名内部类</span><br>                    <span class="hljs-type">int</span> <span class="hljs-variable">number</span> <span class="hljs-operator">=</span> num + <span class="hljs-number">3</span>;<br>                    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">getNumber</span><span class="hljs-params">()</span>&#123;<span class="hljs-comment">//实现抽象方法</span><br>                        <span class="hljs-keyword">return</span> number;<br>                    &#125;<br>                &#125;;        <span class="hljs-comment">/* 注意：分号不能省 */</span><br>            &#125;<br>            <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>                <span class="hljs-type">OuterClass</span> <span class="hljs-variable">out</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">OuterClass</span>();<br>                <span class="hljs-type">InnerClass</span> <span class="hljs-variable">inner</span> <span class="hljs-operator">=</span> out.getInnerClass(<span class="hljs-number">2</span>, <span class="hljs-string">&quot;chenssy&quot;</span>);<br>                System.out.println(inner.getNumber());<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">interface</span> <span class="hljs-title class_">InnerClass</span> &#123; <span class="hljs-comment">//匿名内部类要实现的接口</span><br>            <span class="hljs-type">int</span> <span class="hljs-title function_">getNumber</span><span class="hljs-params">()</span>;<br>        &#125;  <br>&#125;<br></code></pre></td></tr></table></figure>
 
 <ol>
 <li><p>使用匿名内部类时，我们必须是继承一个类或者实现一个接口，但是两者不可兼得，同时也只能继承一个类或者实现一个接口。</p>
@@ -953,7 +953,7 @@
 <li>对象按照自己不同的特征尽量的有不同的哈希码，作用是用于<strong>快速查找</strong></li>
 <li>另一个应用就是hash集合的使用</li>
 </ul>
-<h3 id="orange-book-为什么hashCode-和equals-方法要一起重写"><a href="#orange-book-为什么hashCode-和equals-方法要一起重写" class="headerlink" title=":orange_book:为什么hashCode()和equals()方法要一起重写"></a>:orange_book:为什么hashCode()和equals()方法要一起重写</h3><p>因为两个相等的对象的 hashCode 值必须是相等。也就是说如果 equals ⽅法判断两个对象是相等 的，那这两个对象的 hashCode 值也要相等。如果重写 equals() 时没有重写 hashCode() ⽅法的话就可能会导致 equals ⽅法判断是相等的两个 对象， hashCode 值却不相等。</p>
+<h3 id="📙为什么hashCode-和equals-方法要一起重写"><a href="#📙为什么hashCode-和equals-方法要一起重写" class="headerlink" title="📙为什么hashCode()和equals()方法要一起重写"></a>📙为什么hashCode()和equals()方法要一起重写</h3><p>因为两个相等的对象的 hashCode 值必须是相等。也就是说如果 equals ⽅法判断两个对象是相等 的，那这两个对象的 hashCode 值也要相等。如果重写 equals() 时没有重写 hashCode() ⽅法的话就可能会导致 equals ⽅法判断是相等的两个 对象， hashCode 值却不相等。</p>
 <h2 id="📓java复制"><a href="#📓java复制" class="headerlink" title="📓java复制"></a>📓java复制</h2><p>对于基本类型，直接赋值复制，对于对象类型分为浅拷贝与深拷贝</p>
 <ol>
 <li>浅拷贝：对引用数据类型进行引用传递般的拷贝，此为浅拷贝。</li>
@@ -977,7 +977,7 @@
 <p>反编译后的代码</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">T</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Enum</span><br>&#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-title function_">T</span><span class="hljs-params">(String s, <span class="hljs-type">int</span> i)</span><br>    &#123;<br>        <span class="hljs-built_in">super</span>(s, i);<br>    &#125;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> T[] values()<br>    &#123;<br>        T at[];<br>        <span class="hljs-type">int</span> i;<br>        T at1[];<br>        System.arraycopy(at = ENUM$VALUES, <span class="hljs-number">0</span>, at1 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">T</span>[i = at.length], <span class="hljs-number">0</span>, i);<br>        <span class="hljs-keyword">return</span> at1;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> T <span class="hljs-title function_">valueOf</span><span class="hljs-params">(String s)</span><br>    &#123;<br>        <span class="hljs-keyword">return</span> (T)Enum.valueOf(demo/T, s);<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> T SPRING;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> T SUMMER;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> T AUTUMN;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> T WINTER;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> T ENUM$VALUES[];<br>    <span class="hljs-keyword">static</span><br>    &#123;<br>        SPRING = <span class="hljs-keyword">new</span> <span class="hljs-title class_">T</span>(<span class="hljs-string">&quot;SPRING&quot;</span>, <span class="hljs-number">0</span>);<br>        SUMMER = <span class="hljs-keyword">new</span> <span class="hljs-title class_">T</span>(<span class="hljs-string">&quot;SUMMER&quot;</span>, <span class="hljs-number">1</span>);<br>        AUTUMN = <span class="hljs-keyword">new</span> <span class="hljs-title class_">T</span>(<span class="hljs-string">&quot;AUTUMN&quot;</span>, <span class="hljs-number">2</span>);<br>        WINTER = <span class="hljs-keyword">new</span> <span class="hljs-title class_">T</span>(<span class="hljs-string">&quot;WINTER&quot;</span>, <span class="hljs-number">3</span>);<br>        ENUM$VALUES = (<span class="hljs-keyword">new</span> <span class="hljs-title class_">T</span>[] &#123;<br>            SPRING, SUMMER, AUTUMN, WINTER<br>        &#125;);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h2 id="📓IO流"><a href="#📓IO流" class="headerlink" title="📓IO流"></a>📓IO流</h2><h3 id="orange-book-分类"><a href="#orange-book-分类" class="headerlink" title=":orange_book:分类"></a>:orange_book:分类</h3><p>📃Java 的 I&#x2F;O 大概可以分成以下几类：</p>
+<h2 id="📓IO流"><a href="#📓IO流" class="headerlink" title="📓IO流"></a>📓IO流</h2><h3 id="📙分类"><a href="#📙分类" class="headerlink" title="📙分类"></a>📙分类</h3><p>📃Java 的 I&#x2F;O 大概可以分成以下几类：</p>
 <ul>
 <li>磁盘操作：File</li>
 <li>字节操作：InputStream 和 OutputStream</li>
@@ -1020,7 +1020,7 @@
 <li>InputStreamReader 实现从字节流解码成字符流；</li>
 <li>OutputStreamWriter 实现字符流编码成为字节流。</li>
 </ul>
-<h3 id="orange-book-编码与解码"><a href="#orange-book-编码与解码" class="headerlink" title=":orange_book:编码与解码"></a>:orange_book:编码与解码</h3><p>编码就是把字符转换为字节，而解码是把字节重新组合成字符。如果编码和解码过程使用不同的编码方式那么就出现了乱码。</p>
+<h3 id="📙编码与解码"><a href="#📙编码与解码" class="headerlink" title="📙编码与解码"></a>📙编码与解码</h3><p>编码就是把字符转换为字节，而解码是把字节重新组合成字符。如果编码和解码过程使用不同的编码方式那么就出现了乱码。</p>
 <ul>
 <li>GBK 编码中，中文字符占 2 个字节，英文字符占 1 个字节；</li>
 <li>UTF-8 编码中，中文字符占 3 个字节，英文字符占 1 个字节；</li>
@@ -1029,18 +1029,18 @@
 <p>String 编码转换</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">str1</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;中文&quot;</span>;<br><span class="hljs-type">byte</span>[] bytes = str1.getBytes(<span class="hljs-string">&quot;UTF-8&quot;</span>);<br><span class="hljs-type">String</span> <span class="hljs-variable">str2</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>(bytes, <span class="hljs-string">&quot;UTF-8&quot;</span>);<br>System.out.println(str2);<br></code></pre></td></tr></table></figure>
 
-<h2 id="📓操作系统中的IO"><a href="#📓操作系统中的IO" class="headerlink" title="📓操作系统中的IO"></a>📓操作系统中的IO</h2><h3 id="orange-book-常见I-x2F-O模型对比"><a href="#orange-book-常见I-x2F-O模型对比" class="headerlink" title=":orange_book:常见I&#x2F;O模型对比"></a>:orange_book:常见I&#x2F;O模型对比</h3><p><img src="https://raw.githubusercontent.com/rbmonster/file-storage/main/learning-note/learning/io/ioModel.jpg" srcset="/img/loading.gif" lazyload alt="avatar"></p>
+<h2 id="📓操作系统中的IO"><a href="#📓操作系统中的IO" class="headerlink" title="📓操作系统中的IO"></a>📓操作系统中的IO</h2><h3 id="📙常见I-x2F-O模型对比"><a href="#📙常见I-x2F-O模型对比" class="headerlink" title="📙常见I&#x2F;O模型对比"></a>📙常见I&#x2F;O模型对比</h3><p><img src="https://raw.githubusercontent.com/rbmonster/file-storage/main/learning-note/learning/io/ioModel.jpg" srcset="/img/loading.gif" lazyload alt="avatar"></p>
 <p>所有的系统I&#x2F;O都分为两个阶段：等待就绪和操作。</p>
 <p>举例来说，读函数，分为等待系统可读和真正的读；同理，写函数分为等待网卡可以写和真正的写。</p>
 <p>需要说明的是<strong>等待就绪的阻塞是不使用CPU的，是在“空等”</strong>； 而<strong>真正的读写操作的阻塞是使用CPU的</strong>，真正在”干活”，而且这个过程非常快，属于memory copy，带宽通常在1GB&#x2F;s级别以上，可以理解为基本不耗时。</p>
-<h3 id="orange-book-BIO"><a href="#orange-book-BIO" class="headerlink" title=":orange_book:BIO"></a>:orange_book:BIO</h3><p>传统的BIO中，read去读取网络的数据时，是无法预知对方是否已经发送数据的。因此在收到数据之前，能做的只有等待，直到对方把数据发过来，或者等到网络超时。</p>
-<h3 id="orange-book-NIO"><a href="#orange-book-NIO" class="headerlink" title=":orange_book:NIO"></a>:orange_book:NIO</h3><p>NIO模式下，系统调用read，如果发现没数据已经到达，就会立刻返回-1。使用轮询的方式，不断的尝试有没有数据到达。没有得到数据就等一小会再试继续轮询。</p>
+<h3 id="📙BIO"><a href="#📙BIO" class="headerlink" title="📙BIO"></a>📙BIO</h3><p>传统的BIO中，read去读取网络的数据时，是无法预知对方是否已经发送数据的。因此在收到数据之前，能做的只有等待，直到对方把数据发过来，或者等到网络超时。</p>
+<h3 id="📙NIO"><a href="#📙NIO" class="headerlink" title="📙NIO"></a>📙NIO</h3><p>NIO模式下，系统调用read，如果发现没数据已经到达，就会立刻返回-1。使用轮询的方式，不断的尝试有没有数据到达。没有得到数据就等一小会再试继续轮询。</p>
 <p>NIO解决了线程阻塞的问题 ，但是会带来两个新问题：</p>
 <ol>
 <li>如果有IO连接都要检查，那么就得一个一个的read。这会带来大量的线程上下文切换（read是系统调用，每调用一次就得在用户态和核心态切换一次）</li>
 <li>轮询的休息等待时间无法确定。这里是要猜多久之后数据才能到。等待时间设的太长，程序响应延迟就过大；设的太短，就会造成过于频繁的重试，干耗CPU而已。</li>
 </ol>
-<h3 id="orange-book-IO复用模型"><a href="#orange-book-IO复用模型" class="headerlink" title=":orange_book:IO复用模型"></a>:orange_book:IO复用模型</h3><p><strong>定义</strong>：多个进程的IO可以注册到同一个管道上，这个管道会统一和内核进行交互，告诉操作系统要监视这些IO是否有事件发生。阻塞读取操作系统epoll方法回调的通知消息。</p>
+<h3 id="📙IO复用模型"><a href="#📙IO复用模型" class="headerlink" title="📙IO复用模型"></a>📙IO复用模型</h3><p><strong>定义</strong>：多个进程的IO可以注册到同一个管道上，这个管道会统一和内核进行交互，告诉操作系统要监视这些IO是否有事件发生。阻塞读取操作系统epoll方法回调的通知消息。</p>
 <p>特点及相关说明：</p>
 <ul>
 <li>IO多路复用是要和NIO一起使用的。尽管在操作系统级别，NIO和IO多路复用是两个相对独立的事情。也可以只用IO多路复用 + BIO，这时效果还是当前线程被卡住，没有达到IO多路复用的通知请求到来的效果。</li>
@@ -1068,10 +1068,10 @@
 <li>边沿触发只关心文件描述符是否有新的事件产生，如果有，则返回；如果返回过一次，不管程序是否处理了，只要没有新的事件产生，epoll_wait不会再认为这个fd被“触发”了。简单说——边沿触发代表了一个“事件”。</li>
 </ul>
 <p>边沿触发把如何处理数据的控制权完全交给了开发者，提供了巨大的灵活性。比如，读取一个http的请求，开发者可以决定只读取http中的headers数据就停下来。在边沿触发下，开发者有机会更精细的定制这里的控制逻辑。</p>
-<h3 id="orange-book-信号驱动IO"><a href="#orange-book-信号驱动IO" class="headerlink" title=":orange_book:信号驱动IO"></a>:orange_book:信号驱动IO</h3><p>在通道中安装一个信号器：映射到Linux操作系统中，这就是信号驱动IO。应用进程在读取文件时通知内核，如果某个 socket 的某个事件发生时，请向我发一个信号。</p>
+<h3 id="📙信号驱动IO"><a href="#📙信号驱动IO" class="headerlink" title="📙信号驱动IO"></a>📙信号驱动IO</h3><p>在通道中安装一个信号器：映射到Linux操作系统中，这就是信号驱动IO。应用进程在读取文件时通知内核，如果某个 socket 的某个事件发生时，请向我发一个信号。</p>
 <p>阻塞IO模型、非阻塞IO模型、IO复用模型和信号驱动IO模型都是同步的IO模型。原因是因为，无论以上那种模型，真正的数据拷贝过程，都是同步进行的。</p>
 <h4 id="📚AIO"><a href="#📚AIO" class="headerlink" title="📚AIO"></a>📚AIO</h4><p>用了AIO可以废弃select，poll，epoll。 linux的AIO的实现方式是内核和应用共享一片内存区域，应用通过检测这个内存区域（避免调用nonblocking的read、write函数来测试是否来数据，因为即便调用nonblocking的read和write由于进程要切换用户态和内核态，仍旧效率不高）来得知fd是否有数据，可是检测内存区域毕竟不是实时的，你需要在线程里构造一个监控内存的循环，设置sleep，总的效率不如epoll这样的实时通知。</p>
-<h3 id="orange-book-相关资料"><a href="#orange-book-相关资料" class="headerlink" title=":orange_book:相关资料"></a>:orange_book:相关资料</h3><ul>
+<h3 id="📙相关资料"><a href="#📙相关资料" class="headerlink" title="📙相关资料"></a>📙相关资料</h3><ul>
 <li>操作系统层面理解IO：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/twoheads/p/10712094.html">https://www.cnblogs.com/twoheads/p/10712094.html</a></li>
 <li>图解IO：<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=Mzg3MjA4MTExMw==&amp;mid=2247484746&amp;idx=1&amp;sn=c0a7f9129d780786cabfcac0a8aa6bb7&amp;source=41#wechat_redirect">https://mp.weixin.qq.com/s?__biz=Mzg3MjA4MTExMw==&amp;mid=2247484746&amp;idx=1&amp;sn=c0a7f9129d780786cabfcac0a8aa6bb7&amp;source=41#wechat_redirect</a></li>
 <li>把钓鱼过程，可以拆分为两个步骤：1、鱼咬钩（数据准备）。2、把鱼钓起来放进鱼篓里（数据拷贝）。<ul>
@@ -1114,7 +1114,7 @@
 <ul>
 <li>NIO由原来的阻塞读写（占用线程）变成了<strong>单线程轮询事件</strong>，找到可以进行读写的网络描述符进行读写。除了事件的轮询是阻塞的（没有可干的事情必须要阻塞），剩余的I&#x2F;O操作都是纯CPU操作，没有必要开启多线程。</li>
 </ul>
-<h3 id="orange-book-零拷贝"><a href="#orange-book-零拷贝" class="headerlink" title=":orange_book:零拷贝"></a>:orange_book:零拷贝</h3><p>IO的拷贝：</p>
+<h3 id="📙零拷贝"><a href="#📙零拷贝" class="headerlink" title="📙零拷贝"></a>📙零拷贝</h3><p>IO的拷贝：</p>
 <ol>
 <li>硬件（网卡）拷贝内核缓冲区 （读）</li>
 <li>内核缓冲区拷贝到用户缓冲区 （读）</li>
@@ -1122,7 +1122,7 @@
 <li>最后再从Socket buffer中拷贝到网卡缓冲区&#x2F;硬件资源中。（写）</li>
 </ol>
 <p>零拷贝的实现： 使用直接内存，在内核缓冲区中开辟一块用户空间和内核空间共享的直接内存区域，减少了用户缓冲区的复制操作。</p>
-<h3 id="orange-book-事件驱动模型"><a href="#orange-book-事件驱动模型" class="headerlink" title=":orange_book:事件驱动模型"></a>:orange_book:事件驱动模型</h3><p>Reactor模式首先是事件驱动的，有一个或多个并发输入源，有一个Service Handler，有多个Request Handlers；这个Service Handler会同步的将输入的请求（Event）多路复用的分发给相应的Request Handler。</p>
+<h3 id="📙事件驱动模型"><a href="#📙事件驱动模型" class="headerlink" title="📙事件驱动模型"></a>📙事件驱动模型</h3><p>Reactor模式首先是事件驱动的，有一个或多个并发输入源，有一个Service Handler，有多个Request Handlers；这个Service Handler会同步的将输入的请求（Event）多路复用的分发给相应的Request Handler。</p>
 <p>Java的Selector对于Linux系统来说，有一个致命限制：同一个channel的select不能被并发的调用。因此，如果有多个I&#x2F;O线程，必须保证：一个socket只能属于一个IoThread，而一个IoThread可以管理多个socket。另外连接的处理和读写的处理通常可以选择分开，这样对于海量连接的注册和读写就可以分发。虽然read()和write()是比较高效无阻塞的函数，但毕竟会占用CPU，如果面对更高的并发则无能为力。</p>
 <p><a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/rbmonster/file-storage/main/learning-note/learning/io/NIORefactor.png"><img src="https://raw.githubusercontent.com/rbmonster/file-storage/main/learning-note/learning/io/NIORefactor.png" srcset="/img/loading.gif" lazyload alt="avatar"></a></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">interface</span> <span class="hljs-title class_">ChannelHandler</span>&#123;<br>      <span class="hljs-keyword">void</span> <span class="hljs-title function_">channelReadable</span><span class="hljs-params">(Channel channel)</span>;<br>      <span class="hljs-keyword">void</span> <span class="hljs-title function_">channelWritable</span><span class="hljs-params">(Channel channel)</span>;<br>   &#125;<br>   <span class="hljs-keyword">class</span> <span class="hljs-title class_">Channel</span>&#123;<br>     Socket socket;<br>     Event event;<span class="hljs-comment">//读，写或者连接</span><br>   &#125;<br><br>   <span class="hljs-comment">//IO线程主循环:</span><br>   <span class="hljs-keyword">class</span> <span class="hljs-title class_">IoThread</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Thread</span>&#123;<br>   <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">run</span><span class="hljs-params">()</span>&#123;<br>   Channel channel;<br>   <span class="hljs-keyword">while</span>(channel=Selector.select())&#123;<span class="hljs-comment">//选择就绪的事件和对应的连接</span><br>      <span class="hljs-keyword">if</span>(channel.event==accept)&#123;<br>         registerNewChannelHandler(channel);<span class="hljs-comment">//如果是新连接，则注册一个新的读写处理器</span><br>      &#125;<br>      <span class="hljs-keyword">if</span>(channel.event==write)&#123;<br>         getChannelHandler(channel).channelWritable(channel);<span class="hljs-comment">//如果可以写，则执行写事件</span><br>      &#125;<br>      <span class="hljs-keyword">if</span>(channel.event==read)&#123;<br>          getChannelHandler(channel).channelReadable(channel);<span class="hljs-comment">//如果可以读，则执行读事件</span><br>      &#125;<br>    &#125;<br>   &#125;<br>   Map&lt;Channel，ChannelHandler&gt; handlerMap;<span class="hljs-comment">//所有channel的对应事件处理器</span><br></code></pre></td></tr></table></figure>
@@ -1132,7 +1132,7 @@
 <li>NIO selectKey原理：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_32331073/article/details/81132937">https://blog.csdn.net/qq_32331073/article/details/81132937</a></li>
 <li>美团NIO浅析: <a target="_blank" rel="noopener" href="https://tech.meituan.com/2016/11/04/nio.html">https://tech.meituan.com/2016/11/04/nio.html</a></li>
 </ul>
-<h3 id="orange-book-NIO与BIO区别"><a href="#orange-book-NIO与BIO区别" class="headerlink" title=":orange_book:NIO与BIO区别"></a>:orange_book:NIO与BIO区别</h3><ul>
+<h3 id="📙NIO与BIO区别"><a href="#📙NIO与BIO区别" class="headerlink" title="📙NIO与BIO区别"></a>📙NIO与BIO区别</h3><ul>
 <li>通讯方式：NIO 通过Channel（通道） 进行读写，通道是双向的，可读也可写。而BIO使用的流读写是单向的。</li>
 <li>BIO流是阻塞的，NIO流是不阻塞的。</li>
 <li>BIO 面向流(Stream oriented)，而 NIO 面向缓冲区(Buffer oriented)。<ol>
@@ -1170,9 +1170,9 @@
 <li>两者也有相同点：事件分发器负责提交IO操作（异步)、查询设备是否可操作（同步)，然后当条件满足时，就回调handler；</li>
 <li>不同点在于，异步情况下（Proactor)，当回调handler时，表示I&#x2F;O操作已经完成；同步情况下（Reactor)，回调handler时，表示I&#x2F;O设备可以进行某个操作（can read 或 can write)。</li>
 </ul>
-<h3 id="orange-book-RMI-远程方法调用"><a href="#orange-book-RMI-远程方法调用" class="headerlink" title=":orange_book:RMI 远程方法调用"></a>:orange_book:RMI 远程方法调用</h3><p>java支持，最早的远程调用，使用Remote接口，同时实现类别需要继承UnicastRemoteObject</p>
+<h3 id="📙RMI-远程方法调用"><a href="#📙RMI-远程方法调用" class="headerlink" title="📙RMI 远程方法调用"></a>📙RMI 远程方法调用</h3><p>java支持，最早的远程调用，使用Remote接口，同时实现类别需要继承UnicastRemoteObject</p>
 <p>通过Registry，注册发现远程方法，并调用接口。</p>
-<h3 id="orange-book-netty"><a href="#orange-book-netty" class="headerlink" title=":orange_book:netty"></a>:orange_book:netty</h3><p>Netty 是一个 基于 NIO 的 client-server(客户端服务器)框架，使用它可以快速简单地开发网络应用程序。</p>
+<h3 id="📙netty"><a href="#📙netty" class="headerlink" title="📙netty"></a>📙netty</h3><p>Netty 是一个 基于 NIO 的 client-server(客户端服务器)框架，使用它可以快速简单地开发网络应用程序。</p>
 <ul>
 <li>它极大地简化并优化了 TCP 和 UDP 套接字服务器等网络编程,并且性能以及安全性等很多方面甚至都要更好。</li>
 <li>支持多种协议 如 FTP，SMTP，HTTP 以及各种二进制和基于文本的传统协议。</li>
@@ -1193,7 +1193,7 @@
 <li>通过代码封装，简化了服务端与客户端的代码交互。</li>
 <li>数据直接复制到directBuffer的工作缓冲区</li>
 </ul>
-<h2 id="📓泛型"><a href="#📓泛型" class="headerlink" title="📓泛型"></a>📓泛型</h2><h3 id="orange-book-简介"><a href="#orange-book-简介" class="headerlink" title=":orange_book:简介"></a>:orange_book:简介</h3><blockquote>
+<h2 id="📓泛型"><a href="#📓泛型" class="headerlink" title="📓泛型"></a>📓泛型</h2><h3 id="📙简介"><a href="#📙简介" class="headerlink" title="📙简介"></a>📙简介</h3><blockquote>
 <p>泛型的本质是参数化类型，也就是所操作的数据类型被指定为一个参数。<br>在集合中存储对象并在使用前进行类型转换是不方便的。泛型防止了那种情况的发生。它提供了编译期的类型安全，确保你只能把正确类型的对象放入集合中，避免了在运行时出现ClassCastException。</p>
 </blockquote>
 <p>📚使用<code>T, E or K,V</code>等被广泛认可的类型占位符。</p>
@@ -1204,7 +1204,7 @@
 <li>限定通配符：一种是<code>&lt;? extends T&gt;</code>它通过确保类型必须是T的子类来设定类型的上界 ，另一种是<code>&lt;? super T&gt;</code>它通过确保类型必须是T的父类来设定类型的下界</li>
 <li>泛型类型必须用限定内的类型来进行初始化，否则会导致编译错误。</li>
 </ol>
-<h3 id="orange-book-类型擦除"><a href="#orange-book-类型擦除" class="headerlink" title=":orange_book:类型擦除"></a>:orange_book:类型擦除</h3><p>📚类型擦除: Java的泛型基本上都是在编译器这个层次上实现的，在生成的字节码中是不包含泛型中的类型信息的，使用泛型的时候加上类型参数，在编译器编译的时候会去掉，这个过程成为类型擦除。</p>
+<h3 id="📙类型擦除"><a href="#📙类型擦除" class="headerlink" title="📙类型擦除"></a>📙类型擦除</h3><p>📚类型擦除: Java的泛型基本上都是在编译器这个层次上实现的，在生成的字节码中是不包含泛型中的类型信息的，使用泛型的时候加上类型参数，在编译器编译的时候会去掉，这个过程成为类型擦除。</p>
 <ul>
 <li>如在代码中定义<code>List&lt;Object&gt;</code>和<code>List&lt;String&gt;</code>等类型，在编译后都会变成List，JVM看到的只是List，而由泛型附加的类型信息对JVM是看不到的。</li>
 <li>类型擦除后保留的原始类型，最后在字节码中的类型变量变成真正类型。无论何时定义一个泛型，相应的原始类型都会被自动提供，无限定的变量用Object替换。</li>
@@ -1317,10 +1317,10 @@
 <li>String getLocalizedMessage() : 返回异常对象的本地化信息。使⽤ Throwable 的⼦类覆盖这个⽅ 法，可以⽣成本地化信息。如果⼦类没有覆盖该⽅法，则该⽅法返回的信息与 getMessage() 返 回的结果相同</li>
 <li>void printStackTrace() : 在控制台上打印 Throwable 对象封装的异常信息</li>
 </ul>
-<h2 id="📓注解"><a href="#📓注解" class="headerlink" title="📓注解"></a>📓注解</h2><h3 id="orange-book-什么是注解"><a href="#orange-book-什么是注解" class="headerlink" title=":orange_book:什么是注解"></a>:orange_book:什么是注解</h3><p>　Annontation 是 Java5 开始引入的新特征，中文名称叫注解。它提供了一种安全的类似注释的机制，用来<strong>将任何的信息或元数据（metadata）与程序元素（类、方法、成员变量等）进行关联</strong>。为程序的元素（类、方法、成员变量）加上更直观更明了的说明，这些说明信息是与程序的业务逻辑无关，并且供指定的工具或框架使用。Annontation 像一种修饰符一样，应用于包、类型、构造方法、方法、成员变量、参数及本地变量的声明语句中。</p>
+<h2 id="📓注解"><a href="#📓注解" class="headerlink" title="📓注解"></a>📓注解</h2><h3 id="📙什么是注解"><a href="#📙什么是注解" class="headerlink" title="📙什么是注解"></a>📙什么是注解</h3><p>　Annontation 是 Java5 开始引入的新特征，中文名称叫注解。它提供了一种安全的类似注释的机制，用来<strong>将任何的信息或元数据（metadata）与程序元素（类、方法、成员变量等）进行关联</strong>。为程序的元素（类、方法、成员变量）加上更直观更明了的说明，这些说明信息是与程序的业务逻辑无关，并且供指定的工具或框架使用。Annontation 像一种修饰符一样，应用于包、类型、构造方法、方法、成员变量、参数及本地变量的声明语句中。</p>
 <p>　　Java 注解是附加在代码中的一些元信息，用于一些工具在编译、运行时进行解析和使用，起到说明、配置的功能。注解不会也不能影响代码的实际逻辑，仅仅起到辅助性的作用。包含在 <code>java.lang.annotation</code> 包中。</p>
 <p>　　简单来说：注解其实就是<strong>代码中的特殊标记</strong>，这些标记可以<strong>在编译、类加载、运行时被读取，并执行相对应的处理</strong>。</p>
-<h3 id="orange-book-为什么要注解"><a href="#orange-book-为什么要注解" class="headerlink" title=":orange_book:为什么要注解"></a>:orange_book:为什么要注解</h3><p>传统的方式，我们是通过配置文件 <code>.xml</code> 来告诉类是如何运行的。</p>
+<h3 id="📙为什么要注解"><a href="#📙为什么要注解" class="headerlink" title="📙为什么要注解"></a>📙为什么要注解</h3><p>传统的方式，我们是通过配置文件 <code>.xml</code> 来告诉类是如何运行的。</p>
 <p>有了注解技术以后，我们就可以通过注解告诉类如何运行</p>
 <p>例如：我们以前编写 Servlet 的时候，需要在 web.xml 文件配置具体的信息。我们使用了注解以后，可以直接在 Servlet 源代码上，增加注解…Servlet 就被配置到 Tomcat 上了。也就是说，注解可以给类、方法上注入信息。</p>
 <p>明显地可以看出，这样是非常直观的，并且 Servlet 规范是推崇这种配置方式的。</p>
@@ -1381,7 +1381,7 @@
 </ol>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.lang.annotation.Documented;<br><span class="hljs-keyword">import</span> java.lang.annotation.Retention;<br><span class="hljs-keyword">import</span> java.lang.annotation.Target;<br><span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> java.lang.annotation.ElementType.FIELD;<br><span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> java.lang.annotation.RetentionPolicy.RUNTIME;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 水果名称注解</span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">@Target(FIELD)</span><br><span class="hljs-meta">@Retention(RUNTIME)</span><br><span class="hljs-meta">@Documented</span><br><span class="hljs-keyword">public</span> <span class="hljs-meta">@interface</span> FruitName &#123;<br>    String <span class="hljs-title function_">value</span><span class="hljs-params">()</span> <span class="hljs-keyword">default</span> <span class="hljs-string">&quot;&quot;</span>;<span class="hljs-comment">//属性写成类似方法</span><br>&#125;<br><br></code></pre></td></tr></table></figure>
 
-<h2 id="📓网络编程"><a href="#📓网络编程" class="headerlink" title="📓网络编程"></a>📓网络编程</h2><h3 id="orange-book-网络编程基础"><a href="#orange-book-网络编程基础" class="headerlink" title=":orange_book:网络编程基础"></a>:orange_book:网络编程基础</h3><ul>
+<h2 id="📓网络编程"><a href="#📓网络编程" class="headerlink" title="📓网络编程"></a>📓网络编程</h2><h3 id="📙网络编程基础"><a href="#📙网络编程基础" class="headerlink" title="📙网络编程基础"></a>📙网络编程基础</h3><ul>
 <li>Java网络编程<code>API</code>建立在Socket基础之上</li>
 <li>Java网络接口支持<code>IP</code>以上的所有高层协议</li>
 </ul>
@@ -1392,7 +1392,7 @@
 <li>Sockets：使用 TCP 协议实现网络通信；</li>
 <li>Datagram：使用 UDP 协议实现网络通信。</li>
 </ul>
-<h3 id="orange-book-Socket"><a href="#orange-book-Socket" class="headerlink" title=":orange_book:Socket"></a>:orange_book:Socket</h3><blockquote>
+<h3 id="📙Socket"><a href="#📙Socket" class="headerlink" title="📙Socket"></a>📙Socket</h3><blockquote>
 <p>:books:Socket，又称套接字，是在不同的进程间进行网络通讯的一种协议、约定或者说是规范。</p>
 <p>对于Socket编程，它更多的时候是基于TCP&#x2F;UDP等协议做的一层封装或者说抽象，是一套系统所提供的用于进行网络通信相关编程的接口。</p>
 </blockquote>
