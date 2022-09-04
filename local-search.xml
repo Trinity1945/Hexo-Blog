@@ -104,31 +104,6 @@
   
   
   <entry>
-    <title>Hexo一键发布文章</title>
-    <link href="/2022/09/04/Hexo%E4%B8%80%E9%94%AE%E5%8F%91%E5%B8%83%E6%96%87%E7%AB%A0/"/>
-    <url>/2022/09/04/Hexo%E4%B8%80%E9%94%AE%E5%8F%91%E5%B8%83%E6%96%87%E7%AB%A0/</url>
-    
-    <content type="html"><![CDATA[<h1 id="Hexo一键发布文章"><a href="#Hexo一键发布文章" class="headerlink" title="Hexo一键发布文章"></a>Hexo一键发布文章</h1><h2 id="一、问题"><a href="#一、问题" class="headerlink" title="一、问题"></a>一、问题</h2><p>刚开始使用hexo的时候简直无法忍受繁杂的部署命令,不仅要输入以下命令来更新，并且还要在指定的目录下打开 git bash，这让怕麻烦的我十分难受…</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo clean<br>hexo g -d<br></code></pre></td></tr></table></figure><h2 id="二、解决"><a href="#二、解决" class="headerlink" title="二、解决"></a>二、解决</h2><p>注意事项：下面的命令中 D:&#x2F;Myblog&#x2F;hexo&#x2F;liblog 是我博客的文件夹路径，请替换为你自己博客的路径</p><p>任意目录打开 git bash ，输入以下命令</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">git config --global alias.fuck <span class="hljs-string">&#x27;!cd D:/Myblog/hexo/liblog;hexo clean;hexo g -d&#x27;</span><br>git fuck<br></code></pre></td></tr></table></figure><p>以后就可以在任意目录下通过 git fuck 来一键更新了。</p><h2 id="三、如何取消别名"><a href="#三、如何取消别名" class="headerlink" title="三、如何取消别名"></a>三、如何取消别名</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git config --global --<span class="hljs-built_in">unset</span> alias.fuck<br></code></pre></td></tr></table></figure><h2 id="四、再简单些"><a href="#四、再简单些" class="headerlink" title="四、再简单些"></a>四、再简单些</h2><p>每次都要打开git bush再输入git fuck 还是有些麻烦，通过windows的bat脚本一键实现发布文章，新建一个文件后缀命名为bat,输入以下命令</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">@<span class="hljs-built_in">echo</span> off<br><span class="hljs-built_in">echo</span> 开始提交到git....<br>git fuck<br><span class="hljs-built_in">echo</span> 推送到git成功<br>@<span class="hljs-built_in">echo</span> off<br>pause<br></code></pre></td></tr></table></figure><p><strong>完美！！！</strong></p><p>只需点击这个bat文件就能够一键发布文章了</p>]]></content>
-    
-    
-    <categories>
-      
-      <category>日常</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>hexo</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>好用的IDEA插件</title>
     <link href="/2022/09/04/IDEA%E6%8F%92%E4%BB%B6/"/>
     <url>/2022/09/04/IDEA%E6%8F%92%E4%BB%B6/</url>
@@ -146,6 +121,31 @@
     <tags>
       
       <tag>插件</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Hexo一键发布文章</title>
+    <link href="/2022/09/04/Hexo%E4%B8%80%E9%94%AE%E5%8F%91%E5%B8%83%E6%96%87%E7%AB%A0/"/>
+    <url>/2022/09/04/Hexo%E4%B8%80%E9%94%AE%E5%8F%91%E5%B8%83%E6%96%87%E7%AB%A0/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Hexo一键发布文章"><a href="#Hexo一键发布文章" class="headerlink" title="Hexo一键发布文章"></a>Hexo一键发布文章</h1><h2 id="一、问题"><a href="#一、问题" class="headerlink" title="一、问题"></a>一、问题</h2><p>刚开始使用hexo的时候简直无法忍受繁杂的部署命令,不仅要输入以下命令来更新，并且还要在指定的目录下打开 git bash，这让怕麻烦的我十分难受…</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo clean<br>hexo g -d<br></code></pre></td></tr></table></figure><h2 id="二、解决"><a href="#二、解决" class="headerlink" title="二、解决"></a>二、解决</h2><p>注意事项：下面的命令中 D:&#x2F;Myblog&#x2F;hexo&#x2F;liblog 是我博客的文件夹路径，请替换为你自己博客的路径</p><p>任意目录打开 git bash ，输入以下命令</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">git config --global alias.fuck <span class="hljs-string">&#x27;!cd D:/Myblog/hexo/liblog;hexo clean;hexo g -d&#x27;</span><br>git fuck<br></code></pre></td></tr></table></figure><p>以后就可以在任意目录下通过 git fuck 来一键更新了。</p><h2 id="三、如何取消别名"><a href="#三、如何取消别名" class="headerlink" title="三、如何取消别名"></a>三、如何取消别名</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git config --global --<span class="hljs-built_in">unset</span> alias.fuck<br></code></pre></td></tr></table></figure><h2 id="四、再简单些"><a href="#四、再简单些" class="headerlink" title="四、再简单些"></a>四、再简单些</h2><p>每次都要打开git bush再输入git fuck 还是有些麻烦，通过windows的bat脚本一键实现发布文章，新建一个文件后缀命名为bat,输入以下命令</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">@<span class="hljs-built_in">echo</span> off<br><span class="hljs-built_in">echo</span> 开始提交到git....<br>git fuck<br><span class="hljs-built_in">echo</span> 推送到git成功<br>@<span class="hljs-built_in">echo</span> off<br>pause<br></code></pre></td></tr></table></figure><p><strong>完美！！！</strong></p><p>只需点击这个bat文件就能够一键发布文章了</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>日常</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>hexo</tag>
       
     </tags>
     
