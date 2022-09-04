@@ -1,0 +1,754 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/avatar.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="liziyuan">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="JSR303数据校验 JSR 303 是Java为Bean数据合法校验提供的标准框架，已经包含在Java EE 6.0中。JSR是一个规范，它的核心接口时Validator，该接口根据目标对象类中所标注的校验注解进行数据校验，并得到校验结果。JSR303通过在Bean属性中标注类似@NotNull、@Max等标准的注解指定校验规则，并通过标准的验证接口对Bean进行验证。  JSR 303 包含注">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JSR303数据校验">
+<meta property="og:url" content="http://example.com/2022/09/04/JSR303%E6%95%B0%E6%8D%AE%E6%A0%A1%E9%AA%8C/index.html">
+<meta property="og:site_name" content="九黎城">
+<meta property="og:description" content="JSR303数据校验 JSR 303 是Java为Bean数据合法校验提供的标准框架，已经包含在Java EE 6.0中。JSR是一个规范，它的核心接口时Validator，该接口根据目标对象类中所标注的校验注解进行数据校验，并得到校验结果。JSR303通过在Bean属性中标注类似@NotNull、@Max等标准的注解指定校验规则，并通过标准的验证接口对Bean进行验证。  JSR 303 包含注">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/13.jpg">
+<meta property="article:published_time" content="2022-09-04T01:12:24.000Z">
+<meta property="article:modified_time" content="2022-09-04T06:10:05.975Z">
+<meta property="article:author" content="liziyuan">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/13.jpg">
+  
+  
+  
+  <title>JSR303数据校验 - 九黎城</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>bigMouse</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                Links
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/2.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="JSR303数据校验"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-09-04 09:12" pubdate>
+          2022年9月4日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          12k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          105 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">JSR303数据校验</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="JSR303数据校验"><a href="#JSR303数据校验" class="headerlink" title="JSR303数据校验"></a>JSR303数据校验</h1><blockquote>
+<p>JSR 303 是Java为Bean数据合法校验提供的标准框架，已经包含在Java EE 6.0中。JSR是一个规范，它的核心接口时Validator，该接口根据目标对象类中所标注的校验注解进行数据校验，并得到校验结果。JSR303通过在Bean属性中标注类似@NotNull、@Max等标准的注解指定校验规则，并通过标准的验证接口对Bean进行验证。</p>
+</blockquote>
+<h2 id="JSR-303-包含注解"><a href="#JSR-303-包含注解" class="headerlink" title="JSR 303 包含注解"></a>JSR 303 包含注解</h2><table>
+<thead>
+<tr>
+<th align="left">注解名称</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">@Null</td>
+<td align="center">被注解的元素必须为null</td>
+</tr>
+<tr>
+<td align="left">@NotNull</td>
+<td align="center">被注解的元素必须不为null</td>
+</tr>
+<tr>
+<td align="left">@AssertTrue</td>
+<td align="center">被注解的元素必须为true</td>
+</tr>
+<tr>
+<td align="left">@AssertFalse</td>
+<td align="center">被注解的元素必须为false</td>
+</tr>
+<tr>
+<td align="left">@Min(value)</td>
+<td align="center">被注解的元素必须是一个数字，其值必须大于等于指定的最小值</td>
+</tr>
+<tr>
+<td align="left">@Max(value)</td>
+<td align="center">被注解的元素必须是一个数字，其值必须小于等于指定的最大值</td>
+</tr>
+<tr>
+<td align="left">@DecimalMin(value)</td>
+<td align="center">被注解的元素必须是一个数字，其值必须大于等于指定的最小值</td>
+</tr>
+<tr>
+<td align="left">@DecimalMax(value)</td>
+<td align="center">被注解的元素必须是一个数字，其值必须小于等于指定的最大值</td>
+</tr>
+<tr>
+<td align="left">@Size</td>
+<td align="center">被注解的元素的大小必须在指定的范围内</td>
+</tr>
+<tr>
+<td align="left">@Digits(integer,fraction)</td>
+<td align="center">被注解的元素必须是一个数字，其值必须在可接受的范围内</td>
+</tr>
+<tr>
+<td align="left">@Past</td>
+<td align="center">被注解的元素必须是一个过去的时间</td>
+</tr>
+<tr>
+<td align="left">@Future</td>
+<td align="center">被注解的元素必须是一个将来的时间</td>
+</tr>
+<tr>
+<td align="left">@Pattern(regex&#x3D;,flag&#x3D;)</td>
+<td align="center">被注解的元素必须符合指定的正则表达式</td>
+</tr>
+</tbody></table>
+<h2 id="Hibernate-Vakudator"><a href="#Hibernate-Vakudator" class="headerlink" title="Hibernate Vakudator"></a>Hibernate Vakudator</h2><blockquote>
+<p>Hibernate Vakudator是JSR303的一个参考实现，出来支持所有的标准注解外，还支持一些扩展注解</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>注解名称</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>@NotBlank(message&#x3D;)</td>
+<td align="center">验证字符串非null,并且长度必须大于0</td>
+</tr>
+<tr>
+<td>@Email</td>
+<td align="center">被注解的元素必须是电子邮箱地址</td>
+</tr>
+<tr>
+<td>@Length(min&#x3D;,max&#x3D;)</td>
+<td align="center">被注解的字符串的大小必须在指定的范围内</td>
+</tr>
+<tr>
+<td>@NotEmpty</td>
+<td align="center">被注解的字符串必须非空</td>
+</tr>
+<tr>
+<td>@Range(min&#x3D;,max&#x3D;,message&#x3D;)</td>
+<td align="center">被注解的元素必须在合适的范围内</td>
+</tr>
+<tr>
+<td>@URL</td>
+<td align="center">被注解的元素必须是合法的URL</td>
+</tr>
+</tbody></table>
+<h2 id="ValidationMessages-properties"><a href="#ValidationMessages-properties" class="headerlink" title="ValidationMessages.properties"></a>ValidationMessages.properties</h2><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><code class="hljs properties"><span class="hljs-attr">javax.validation.constraints.AssertFalse.message</span>     = <span class="hljs-string">必须为 false</span><br><span class="hljs-attr">javax.validation.constraints.AssertTrue.message</span>      = <span class="hljs-string">必须为 true</span><br><span class="hljs-attr">javax.validation.constraints.DecimalMax.message</span>      = <span class="hljs-string">必须小于 $&#123;inclusive == true ? &#x27;or equal to &#x27; : &#x27;&#x27;&#125;&#123;value&#125;</span><br><span class="hljs-attr">javax.validation.constraints.DecimalMin.message</span>      = <span class="hljs-string">必须大于 $&#123;inclusive == true ? &#x27;or equal to &#x27; : &#x27;&#x27;&#125;&#123;value&#125;</span><br><span class="hljs-attr">javax.validation.constraints.Digits.message</span>          = <span class="hljs-string">数字值超出了边界（期望 &lt;&#123;integer&#125; digits&gt;.&lt;&#123;fraction&#125; digits&gt;）</span><br><span class="hljs-attr">javax.validation.constraints.Email.message</span>           = <span class="hljs-string">必须为格式规范的电子邮件地址</span><br><span class="hljs-attr">javax.validation.constraints.Future.message</span>          = <span class="hljs-string">必须是未来的日期</span><br><span class="hljs-attr">javax.validation.constraints.FutureOrPresent.message</span> = <span class="hljs-string">必须是现在或将来的日期</span><br><span class="hljs-attr">javax.validation.constraints.Max.message</span>             = <span class="hljs-string">必须小于或等于 &#123;value&#125;</span><br><span class="hljs-attr">javax.validation.constraints.Min.message</span>             = <span class="hljs-string">必须大于或等于 &#123;value&#125;</span><br><span class="hljs-attr">javax.validation.constraints.Negative.message</span>        = <span class="hljs-string">必须小于 0</span><br><span class="hljs-attr">javax.validation.constraints.NegativeOrZero.message</span>  = <span class="hljs-string">必须小于或等于 0</span><br><span class="hljs-attr">javax.validation.constraints.NotBlank.message</span>        = <span class="hljs-string">不得为空白</span><br><span class="hljs-attr">javax.validation.constraints.NotEmpty.message</span>        = <span class="hljs-string">不得为空</span><br><span class="hljs-attr">javax.validation.constraints.NotNull.message</span>         = <span class="hljs-string">不得为 null</span><br><span class="hljs-attr">javax.validation.constraints.Null.message</span>            = <span class="hljs-string">必须为 null</span><br><span class="hljs-attr">javax.validation.constraints.Past.message</span>            = <span class="hljs-string">必须是过去的日期</span><br><span class="hljs-attr">javax.validation.constraints.PastOrPresent.message</span>   = <span class="hljs-string">必须是过去或现在的日期</span><br><span class="hljs-attr">javax.validation.constraints.Pattern.message</span>         = <span class="hljs-string">必须与 &quot;&#123;regexp&#125;&quot; 匹配</span><br><span class="hljs-attr">javax.validation.constraints.Positive.message</span>        = <span class="hljs-string">必须大于 0</span><br><span class="hljs-attr">javax.validation.constraints.PositiveOrZero.message</span>  = <span class="hljs-string">必须大于或等于 0</span><br><span class="hljs-attr">javax.validation.constraints.Size.message</span>            = <span class="hljs-string">大小必须在 &#123;min&#125; 和 &#123;max&#125; 之间</span><br><br><span class="hljs-attr">org.hibernate.validator.constraints.CreditCardNumber.message</span>        = <span class="hljs-string">无效信用卡卡号</span><br><span class="hljs-attr">org.hibernate.validator.constraints.Currency.message</span>                = <span class="hljs-string">无效货币（必须为 &#123;value&#125; 之一）</span><br><span class="hljs-attr">org.hibernate.validator.constraints.EAN.message</span>                     = <span class="hljs-string">无效 &#123;type&#125; 条形码</span><br><span class="hljs-attr">org.hibernate.validator.constraints.Email.message</span>                   = <span class="hljs-string">电子邮件地址格式不规范</span><br><span class="hljs-attr">org.hibernate.validator.constraints.ISBN.message</span>                    = <span class="hljs-string">无效 ISBN</span><br><span class="hljs-attr">org.hibernate.validator.constraints.Length.message</span>                  = <span class="hljs-string">长度必须介于 &#123;min&#125; 与 &#123;max&#125; 之间</span><br><span class="hljs-attr">org.hibernate.validator.constraints.CodePointLength.message</span>         = <span class="hljs-string">长度必须介于 &#123;min&#125; 与 &#123;max&#125; 之间</span><br><span class="hljs-attr">org.hibernate.validator.constraints.LuhnCheck.message</span>               = <span class="hljs-string">$&#123;validatedValue&#125; 的校验位无效，Luhn Modulo 10 校验和失败</span><br><span class="hljs-attr">org.hibernate.validator.constraints.Mod10Check.message</span>              = <span class="hljs-string">$&#123;validatedValue&#125; 的校验位无效，Modulo 10 校验和失败</span><br><span class="hljs-attr">org.hibernate.validator.constraints.Mod11Check.message</span>              = <span class="hljs-string">$&#123;validatedValue&#125; 的校验位无效，Modulo 11 校验和失败</span><br><span class="hljs-attr">org.hibernate.validator.constraints.ModCheck.message</span>                = <span class="hljs-string">$&#123;validatedValue&#125; 的校验位无效，&#123;modType&#125; 校验和失败</span><br><span class="hljs-attr">org.hibernate.validator.constraints.NotBlank.message</span>                = <span class="hljs-string">可能不为空</span><br><span class="hljs-attr">org.hibernate.validator.constraints.NotEmpty.message</span>                = <span class="hljs-string">可能不为空</span><br><span class="hljs-attr">org.hibernate.validator.constraints.ParametersScriptAssert.message</span>  = <span class="hljs-string">脚本表达式 &quot;&#123;script&#125;&quot; 未求值为 true</span><br><span class="hljs-attr">org.hibernate.validator.constraints.Range.message</span>                   = <span class="hljs-string">必须介于 &#123;min&#125; 与 &#123;max&#125; 之间</span><br><span class="hljs-attr">org.hibernate.validator.constraints.SafeHtml.message</span>                = <span class="hljs-string">可能具有不安全的 HTML 内容</span><br><span class="hljs-attr">org.hibernate.validator.constraints.ScriptAssert.message</span>            = <span class="hljs-string">脚本表达式 &quot;&#123;script&#125;&quot; 未求值为 true</span><br><span class="hljs-attr">org.hibernate.validator.constraints.UniqueElements.message</span>          = <span class="hljs-string">必须仅包含唯一元素</span><br><span class="hljs-attr">org.hibernate.validator.constraints.URL.message</span>                     = <span class="hljs-string">必须为有效 URL</span><br><br><span class="hljs-attr">org.hibernate.validator.constraints.br.CNPJ.message</span>                 = <span class="hljs-string">无效巴西企业纳税人登记号 (CNPJ)</span><br><span class="hljs-attr">org.hibernate.validator.constraints.br.CPF.message</span>                  = <span class="hljs-string">无效巴西个人纳税人登记号 (CPF)</span><br><span class="hljs-attr">org.hibernate.validator.constraints.br.TituloEleitoral.message</span>      = <span class="hljs-string">无效巴西投票人身份证号</span><br><br><span class="hljs-attr">org.hibernate.validator.constraints.pl.REGON.message</span>                = <span class="hljs-string">无效波兰纳税人识别号 (REGON)</span><br><span class="hljs-attr">org.hibernate.validator.constraints.pl.NIP.message</span>                  = <span class="hljs-string">无效 VAT 识别号 (NIP)</span><br><span class="hljs-attr">org.hibernate.validator.constraints.pl.PESEL.message</span>                = <span class="hljs-string">无效波兰身份证号 (PESEL)</span><br><br><span class="hljs-attr">org.hibernate.validator.constraints.time.DurationMax.message</span>        = <span class="hljs-string">必须短于 $&#123;inclusive == true ? &#x27; or equal to&#x27; : &#x27;&#x27;&#125;$&#123;days == 0 ? &#x27;&#x27; : days == 1 ? &#x27; 1 day&#x27; : &#x27; &#x27; += days += &#x27; days&#x27;&#125;$&#123;hours == 0 ? &#x27;&#x27; : hours == 1 ? &#x27; 1 hour&#x27; : &#x27; &#x27; += hours += &#x27; hours&#x27;&#125;$&#123;minutes == 0 ? &#x27;&#x27; : minutes == 1 ? &#x27; 1 minute&#x27; : &#x27; &#x27; += minutes += &#x27; minutes&#x27;&#125;$&#123;seconds == 0 ? &#x27;&#x27; : seconds == 1 ? &#x27; 1 second&#x27; : &#x27; &#x27; += seconds += &#x27; seconds&#x27;&#125;$&#123;millis == 0 ? &#x27;&#x27; : millis == 1 ? &#x27; 1 milli&#x27; : &#x27; &#x27; += millis += &#x27; millis&#x27;&#125;$&#123;nanos == 0 ? &#x27;&#x27; : nanos == 1 ? &#x27; 1 nano&#x27; : &#x27; &#x27; += nanos += &#x27; nanos&#x27;&#125;</span><br><span class="hljs-attr">org.hibernate.validator.constraints.time.DurationMin.message</span>        = <span class="hljs-string">必须长于 $&#123;inclusive == true ? &#x27; or equal to&#x27; : &#x27;&#x27;&#125;$&#123;days == 0 ? &#x27;&#x27; : days == 1 ? &#x27; 1 day&#x27; : &#x27; &#x27; += days += &#x27; days&#x27;&#125;$&#123;hours == 0 ? &#x27;&#x27; : hours == 1 ? &#x27; 1 hour&#x27; : &#x27; &#x27; += hours += &#x27; hours&#x27;&#125;$&#123;minutes == 0 ? &#x27;&#x27; : minutes == 1 ? &#x27; 1 minute&#x27; : &#x27; &#x27; += minutes += &#x27; minutes&#x27;&#125;$&#123;seconds == 0 ? &#x27;&#x27; : seconds == 1 ? &#x27; 1 second&#x27; : &#x27; &#x27; += seconds += &#x27; seconds&#x27;&#125;$&#123;millis == 0 ? &#x27;&#x27; : millis == 1 ? &#x27; 1 milli&#x27; : &#x27; &#x27; += millis += &#x27; millis&#x27;&#125;$&#123;nanos == 0 ? &#x27;&#x27; : nanos == 1 ? &#x27; 1 nano&#x27; : &#x27; &#x27; += nanos += &#x27; nanos&#x27;&#125;</span><br><br></code></pre></td></tr></table></figure>
+
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><h2 id="1-导包"><a href="#1-导包" class="headerlink" title="1.导包"></a>1.导包</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml-dtd">&lt;dependency&gt;<br>    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;<br>    &lt;artifactId&gt;spring-boot-starter-validation&lt;/artifactId&gt;<br>    &lt;version&gt;2.6.7&lt;/version&gt;<br>&lt;/dependency&gt;<br></code></pre></td></tr></table></figure>
+
+<h2 id="2-添加注解"><a href="#2-添加注解" class="headerlink" title="2.添加注解"></a>2.添加注解</h2><blockquote>
+<p>在需要校验的字段上添加相应的注解进行校验，其中message是当校验不合法是提示的错误信息</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 品牌</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> liziyuan</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@email</span> liziyuan@gmail.com</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@date</span> 2022-07-08 08:58:02</span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">@Data</span><br><span class="hljs-meta">@TableName(&quot;pms_brand&quot;)</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">BrandEntity</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Serializable</span> &#123;<br>   <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">long</span> <span class="hljs-variable">serialVersionUID</span> <span class="hljs-operator">=</span> <span class="hljs-number">1L</span>;<br><br>   <span class="hljs-comment">/**</span><br><span class="hljs-comment">    * 品牌id</span><br><span class="hljs-comment">    */</span><br>   <span class="hljs-meta">@TableId</span><br>   <span class="hljs-keyword">private</span> Long brandId;<br>   <span class="hljs-comment">/**</span><br><span class="hljs-comment">    * 品牌名</span><br><span class="hljs-comment">    */</span><br>   <span class="hljs-meta">@NotBlank(message = &quot;品牌名称不能为空&quot;)</span><br>   <span class="hljs-keyword">private</span> String name;<br>   <span class="hljs-comment">/**</span><br><span class="hljs-comment">    * 品牌logo地址</span><br><span class="hljs-comment">    */</span><br>   <span class="hljs-meta">@NotEmpty</span><br>   <span class="hljs-meta">@URL(message = &quot;logo必须是一个合法的URL地址&quot;)</span><br>   <span class="hljs-keyword">private</span> String logo;<br>   <span class="hljs-comment">/**</span><br><span class="hljs-comment">    * 介绍</span><br><span class="hljs-comment">    */</span><br>   <span class="hljs-keyword">private</span> String descript;<br>   <span class="hljs-comment">/**</span><br><span class="hljs-comment">    * 显示状态[0-不显示；1-显示]</span><br><span class="hljs-comment">    */</span><br>   <span class="hljs-keyword">private</span> Integer showStatus;<br>   <span class="hljs-comment">/**</span><br><span class="hljs-comment">    * 检索首字母</span><br><span class="hljs-comment">    */</span><br>   <span class="hljs-meta">@NotEmpty</span><br>   <span class="hljs-meta">@Pattern(regexp = &quot;/~[a-zA-Z]$/&quot;,message = &quot;检索首字母必须是一个字母&quot;)</span><br>   <span class="hljs-keyword">private</span> String firstLetter;<br>   <span class="hljs-comment">/**</span><br><span class="hljs-comment">    * 排序</span><br><span class="hljs-comment">    */</span><br>   <span class="hljs-meta">@NotNull</span><br>   <span class="hljs-meta">@Min(value = 0,message = &quot;排序必须大于0&quot;)</span><br>   <span class="hljs-keyword">private</span> Integer sort;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="3-Cotroller开启校验"><a href="#3-Cotroller开启校验" class="headerlink" title="3.Cotroller开启校验"></a>3.Cotroller开启校验</h2><blockquote>
+<p>使用@Valid注解开启校验，其中参数BindingResult可以获取校验的结果。</p>
+<ul>
+<li>BindingResult：BindingResult扩展了Errors接口，同时可以获取数据绑定结果对象的信息。@Valid和BindingResult参数是成对出现的，并且在形参中出现的顺序是固定的，一前一后。</li>
+</ul>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java"> <span class="hljs-meta">@RequestMapping(&quot;/save&quot;)</span><br>    <span class="hljs-keyword">public</span> R <span class="hljs-title function_">save</span><span class="hljs-params">(<span class="hljs-meta">@Valid</span> <span class="hljs-meta">@RequestBody</span> BrandEntity brand, BindingResult result)</span>&#123;<br>        <span class="hljs-comment">//BindingResult 参数能够获取校验结果</span><br><span class="hljs-comment">//        获取校验的错误结果</span><br>        <span class="hljs-keyword">if</span> (result.hasErrors()) &#123;<br>            Map&lt;String,String&gt; map=<span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;&gt;();<br>            result.getFieldErrors().forEach((item)-&gt;&#123;<br><span class="hljs-comment">//                获取到错误提示</span><br>                String message=item.getDefaultMessage();<br>                 <span class="hljs-type">String</span> <span class="hljs-variable">field</span> <span class="hljs-operator">=</span> item.getField();<span class="hljs-comment">//获取错误的属性的名字</span><br>                map.put(field,message);<br>            &#125;);<br>            <span class="hljs-keyword">return</span> R.error(<span class="hljs-number">400</span>,<span class="hljs-string">&quot;提交数据不合法&quot;</span>).put(<span class="hljs-string">&quot;data&quot;</span>,map);<br>        &#125;<span class="hljs-keyword">else</span>&#123;<br>      brandService.save(brand);<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> R.ok();<br>    &#125;<br></code></pre></td></tr></table></figure>
+
+<h1 id="自定义校验"><a href="#自定义校验" class="headerlink" title="自定义校验"></a>自定义校验</h1><ol>
+<li><p>编写一个自定义校验注解</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Author</span>: liZiYuan</span><br><span class="hljs-comment"> * &lt;p&gt;</span><br><span class="hljs-comment"> * Date: 2022/7/16  20:01</span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">@Documented</span><br><span class="hljs-meta">@Constraint(</span><br><span class="hljs-meta">        validatedBy = &#123;ListValueConstraintValidator.class&#125;</span><br><span class="hljs-meta">)</span><br><span class="hljs-meta">@Target(&#123;ElementType.METHOD, ElementType.FIELD, ElementType.ANNOTATION_TYPE, ElementType.CONSTRUCTOR, ElementType.PARAMETER, ElementType.TYPE_USE&#125;)</span><br><span class="hljs-meta">@Retention(RetentionPolicy.RUNTIME)</span><br><span class="hljs-keyword">public</span> <span class="hljs-meta">@interface</span> ListValue &#123;<br>    String <span class="hljs-title function_">message</span><span class="hljs-params">()</span> <span class="hljs-keyword">default</span> <span class="hljs-string">&quot;&#123;com.zhang.common.valid.ListValue.message&#125;&quot;</span>;<br><br>    Class&lt;?&gt;[] groups() <span class="hljs-keyword">default</span> &#123;&#125;;<br><br>    Class&lt;? <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Payload</span>&gt;[] payload() <span class="hljs-keyword">default</span> &#123;&#125;;<br><br>    <span class="hljs-type">int</span>[] vals()  <span class="hljs-keyword">default</span> &#123;&#125;;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>编写一个自定义的校验器 ConstrainValidator</p>
+<p>实现ConstraintValidator&lt;Annotation, T&gt;接口,其中Annotation表示自定义的校验注解，T表示校验对象的类型；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ListValueConstraintValidator</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">ConstraintValidator</span>&lt;ListValue,Integer&gt;&#123;<br><br>    <span class="hljs-keyword">private</span> Set&lt;Integer&gt; set=<span class="hljs-keyword">new</span> <span class="hljs-title class_">HashSet</span>&lt;&gt;();<br><br>    <span class="hljs-comment">//初始化方法</span><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">initialize</span><span class="hljs-params">(ListValue constraintAnnotation)</span> &#123;<br>        <span class="hljs-type">int</span>[] vals= constraintAnnotation.vals();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> val : vals) &#123;<br>            set.add(val);<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-comment">//判断是否校验成功</span><br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> value 需要校验的值</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> constraintValidatorContext</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span></span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">isValid</span><span class="hljs-params">(Integer value, ConstraintValidatorContext constraintValidatorContext)</span> &#123;<br>        <span class="hljs-keyword">return</span> set.contains(value);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>关联自定义的校验器和自定义的校验注解</p>
+</li>
+</ol>
+<h1 id="重点"><a href="#重点" class="headerlink" title="重点"></a>重点</h1><blockquote>
+<p>@Validated是@Valid 的一次封装，是Spring提供的校验机制使用。@Valid不提供分组功能</p>
+</blockquote>
+<p><strong>@Valid和@Validated的区别</strong></p>
+<p>Spring Validation验证框架对参数的验证机制提供了@Validated（Spring的JSR-303规范，是标准JSR-303的一个变种），Javax提供了<code>@Valid</code>（标准JSR-303规范），配合BindingResult可以直接提供参数验证结果。</p>
+<p><code>@Valid</code>属于Javax.validation包下，是jdk给提供的，是使用Hibernate validation的时候使用（java的JSR303声明了@Valid这类接口，而Hibernate-validator对其进行了实现）</p>
+<p><code>@Validated</code>是org.springframework.validation.annotation包下的，是spring提供的，是只用Spring validator校验机制使用</p>
+<p>在检验Controller的入参是否符合规范时，使用@Validated或者@Valid在基本验证功能上没有太多区别。但是在分组、注解地方、嵌套验证等功能上两个有所不同：</p>
+<p>1.分组</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Validated</span>：提供了一个分组功能，可以在入参验证时，根据不同的分组采用不同的验证机制<br><span class="hljs-meta">@Valid</span>：作为标准的JSR-<span class="hljs-number">303</span>规范，还没有吸收分组的功能<br></code></pre></td></tr></table></figure>
+
+<p><code>@Validated</code>会有分组的概念，后面默认是有一个Default.class,当你的@Validated后面没有加任何校验分组信息的时候默认会加Default分组,而对于被校验的对象的属性字段，如果你在属性的校验标签里面没有指定分组会添加到默认分组Default里面。所以如果你的对象里面的每个属性都指定了分组信息，而接口上面并没有添加分组信息会出现@Validated“失效的情况”，实际是因为它校验的是Default分组，而没有字段属于Default分组。上述校验不管加不加@ReqeustBody都能完成校验，但是都不能完成嵌套的校验。</p>
+<p>特殊用法:</p>
+<ul>
+<li>分组: 当一个实体类需要多种验证方式时，例：对于一个实体类的id来说，新增的时候是不需要的，对于更新时是必须的, 可以通过groups对验证进行分组</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">AllFiled</span> &#123;<br>&#125;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">First</span> &#123;<br>&#125;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">Secend</span> &#123;<br>&#125;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">UserInfo</span> &#123;<br>    <span class="hljs-keyword">private</span> Integer uid;<br><br>    <span class="hljs-meta">@NotBlank(message = &quot;姓名不能为空&quot;, groups = &#123;First.class, AllFiled.class&#125;)</span><br>    <span class="hljs-keyword">private</span> String username;<br><br>    <span class="hljs-meta">@NotEmpty(message = &quot;密码不能为空&quot;, groups = &#123;AllFiled.class&#125;)</span><br>    <span class="hljs-meta">@Length(min = 6, max = 10, message = &quot;密码长度只能在6-10之间&quot;, groups = &#123;AllFiled.class&#125;)</span><br>    <span class="hljs-keyword">private</span> String password;<br><br>    <span class="hljs-comment">//临时加的字段</span><br>    <span class="hljs-meta">@Min(value = 18, message = &quot;年龄最小为18&quot;, groups = &#123;AllFiled.class&#125;)</span><br>    <span class="hljs-meta">@Max(value = 60, message = &quot;年龄最大为60&quot;, groups = &#123;AllFiled.class&#125;)</span><br>    <span class="hljs-type">int</span> age;<br><br>    <span class="hljs-comment">//临时加的字段</span><br>    <span class="hljs-meta">@AssertTrue(message = &quot;必须同意条款&quot;, groups = &#123;Secend.class, AllFiled.class&#125;)</span><br>    <span class="hljs-type">boolean</span> agree;<br>&#125;<br><br>    <span class="hljs-meta">@ResponseBody</span><br>    <span class="hljs-meta">@GetMapping(&quot;validate&quot;)</span><br>    <span class="hljs-keyword">public</span> Map&lt;String, String&gt; <span class="hljs-title function_">validate</span><span class="hljs-params">(<span class="hljs-meta">@Validated(&#123;AllFiled.class&#125;)</span> UserInfo userInfo, BindingResult result)</span>&#123;<br><br>        Map&lt;String, String&gt; map = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;String, String&gt;();<br>        <span class="hljs-keyword">if</span> (result.hasErrors()) &#123;<br>            List&lt;ObjectError&gt; list  = result.getAllErrors();<br>            <span class="hljs-keyword">for</span> (ObjectError error :<br>                    list) &#123;<br>                <span class="hljs-type">FieldError</span> <span class="hljs-variable">fieldError</span> <span class="hljs-operator">=</span> (FieldError)error;<br>                <span class="hljs-type">String</span> <span class="hljs-variable">defaultMessage</span> <span class="hljs-operator">=</span> fieldError.getDefaultMessage();<br>                <span class="hljs-type">String</span> <span class="hljs-variable">field</span> <span class="hljs-operator">=</span> fieldError.getField();<br>                map.put(field, defaultMessage);<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> map;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>当@Validated分组为空时, 只会验证没有分组的属性, 如上面的uid;</strong></p>
+<p><strong>当@Validated{First.class}时, 只会验证分组为First.class的字段, 对于其他分组字段和未分组字段都为空</strong></p>
+<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a><font style="color:red">注意</font></h1><p>添加全局异常处理时Controller层参数中不能加<code>BindingResult</code>参数，否则无法捕获异常。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Slf4j</span><br><span class="hljs-meta">@RestControllerAdvice(basePackages = &quot;com.zhang.gulimall.product.controller&quot;)</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">GulimallExceptionControllerAdvice</span> &#123;<br><br><span class="hljs-comment">//    @ResponseBody</span><br>    <span class="hljs-meta">@ExceptionHandler(value = MethodArgumentNotValidException.class)</span><br>    <span class="hljs-keyword">public</span> R <span class="hljs-title function_">handlerValidException</span><span class="hljs-params">(MethodArgumentNotValidException e)</span>&#123;<br>        System.out.println(<span class="hljs-string">&quot;校验异常处理&quot;</span>);<br>        log.error(<span class="hljs-string">&quot;数据校验出现问题&#123;&#125;，异常类型&#123;&#125;&quot;</span>,e.getMessage(),e.getClass());<br>         <span class="hljs-type">BindingResult</span> <span class="hljs-variable">bindingResult</span> <span class="hljs-operator">=</span> e.getBindingResult();<br>        Map&lt;String,String&gt; errorMap=<span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;&gt;();<br>        bindingResult.getFieldErrors().forEach((filedError)-&gt;&#123;<br>            errorMap.put(filedError.getField(),filedError.getDefaultMessage());<br>        &#125;);<br>        <span class="hljs-keyword">return</span> R.error(BizCodeEnum.VALID_EXCEPTION.getCode(),BizCodeEnum.VALID_EXCEPTION.getMsg()).put(<span class="hljs-string">&quot;data&quot;</span>,errorMap);<br>    &#125;<br><br>    <span class="hljs-meta">@ExceptionHandler(value = RuntimeException.class)</span><br>    <span class="hljs-keyword">public</span> R <span class="hljs-title function_">hadleException</span><span class="hljs-params">()</span>&#123;<br>        System.out.println(<span class="hljs-string">&quot;其他异常&quot;</span>);<br>        <span class="hljs-keyword">return</span> R.error(BizCodeEnum.UNKNOW_EXCEPTION.getCode(),BizCodeEnum.UNKNOW_EXCEPTION.getMsg());<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/java/" class="category-chain-item">java</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>JSR303数据校验</div>
+      <div>http://example.com/2022/09/04/JSR303数据校验/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>liziyuan</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年9月4日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/09/04/IDEA%E6%8F%92%E4%BB%B6/" title="好用的IDEA插件">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">好用的IDEA插件</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/09/04/Json%E5%BA%8F%E5%88%97%E5%8C%96/" title="JSON序列化">
+                        <span class="hidden-mobile">JSON序列化</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://venom-lemon.github.io/whitehmoob/" target="_blank" rel="nofollow noopener"><span>nav</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/Venom-lemon" target="_blank" rel="nofollow noopener"><span>liziyuan</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
