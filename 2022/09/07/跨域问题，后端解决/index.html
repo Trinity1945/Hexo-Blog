@@ -16,24 +16,24 @@
   <meta name="author" content="liziyuan">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Spring事务失效 访问权限问题java的访问权限主要有4种：private、default、protected、public，如果事务方法的访问权限不是定义为public，这样会导致事务失效，因为spring要求被代理方法必须是public的。翻开源码，可以看到，在AbstractFallbackTransactionAttributeSource类的computeTransactionAtt">
+    <meta name="description" content="跨域问题，后端解决方式1：返回新的CorsFilter12345678910111213141516171819@Configurationpublic class CorsConfig &amp;#123;    private CorsConfiguration buildConfig() &amp;#123;        CorsConfiguration corsConfiguration &#x3D; new">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spring事务哪些情况会失效？">
-<meta property="og:url" content="http://example.com/2022/09/04/Spring%E4%BA%8B%E5%8A%A1%E5%A4%B1%E6%95%88/index.html">
+<meta property="og:title" content="跨域问题，后端解决">
+<meta property="og:url" content="http://example.com/2022/09/07/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98%EF%BC%8C%E5%90%8E%E7%AB%AF%E8%A7%A3%E5%86%B3/index.html">
 <meta property="og:site_name" content="九黎城">
-<meta property="og:description" content="Spring事务失效 访问权限问题java的访问权限主要有4种：private、default、protected、public，如果事务方法的访问权限不是定义为public，这样会导致事务失效，因为spring要求被代理方法必须是public的。翻开源码，可以看到，在AbstractFallbackTransactionAttributeSource类的computeTransactionAtt">
+<meta property="og:description" content="跨域问题，后端解决方式1：返回新的CorsFilter12345678910111213141516171819@Configurationpublic class CorsConfig &amp;#123;    private CorsConfiguration buildConfig() &amp;#123;        CorsConfiguration corsConfiguration &#x3D; new">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/5.jpg">
-<meta property="article:published_time" content="2022-09-04T01:12:24.000Z">
-<meta property="article:modified_time" content="2022-09-04T05:55:38.235Z">
+<meta property="article:published_time" content="2022-09-06T18:12:24.000Z">
+<meta property="article:modified_time" content="2022-09-07T02:17:35.779Z">
 <meta property="article:author" content="liziyuan">
-<meta property="article:tag" content="Spring">
+<meta property="article:tag" content="Http">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://example.com/img/5.jpg">
   
   
   
-  <title>Spring事务哪些情况会失效？ - 九黎城</title>
+  <title>跨域问题，后端解决 - 九黎城</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -198,7 +198,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Spring事务哪些情况会失效？"></span>
+            <span id="subtitle" data-typed-text="跨域问题，后端解决"></span>
           
         </div>
 
@@ -209,8 +209,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-09-04 09:12" pubdate>
-          2022年9月4日 上午
+        <time datetime="2022-09-07 02:12" pubdate>
+          2022年9月7日 凌晨
         </time>
       </span>
     
@@ -221,7 +221,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.8k 字
+          1.7k 字
         
       </span>
     
@@ -232,7 +232,7 @@
         
         
         
-          15 分钟
+          14 分钟
         
       </span>
     
@@ -270,39 +270,20 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Spring事务哪些情况会失效？</h1>
+            <h1 style="display: none">跨域问题，后端解决</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="Spring事务失效"><a href="#Spring事务失效" class="headerlink" title="Spring事务失效"></a>Spring事务失效</h1><ol>
-<li><h4 id="访问权限问题"><a href="#访问权限问题" class="headerlink" title="访问权限问题"></a>访问权限问题</h4><p>java的访问权限主要有4种：private、default、protected、public，如果事务方法的访问权限不是定义为public，这样会导致事务失效，因为spring要求被代理方法必须是public的。翻开源码，可以看到，在<code>AbstractFallbackTransactionAttributeSource</code>类的<code>computeTransactionAttribute</code>方法中有个判断，如果目标方法不是public，则返回null，即不支持</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">protected</span> TransactionAttribute <span class="hljs-title function_">computeTransactionAttribute</span><span class="hljs-params">(Method method, <span class="hljs-meta">@Nullable</span> Class&lt;?&gt; targetClass)</span> &#123;<br>       <span class="hljs-keyword">if</span> (<span class="hljs-built_in">this</span>.allowPublicMethodsOnly() &amp;&amp; !Modifier.isPublic(method.getModifiers())) &#123;<br>           <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>       &#125; <span class="hljs-keyword">else</span> &#123;<br>           <span class="hljs-comment">//........</span><br>       &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-</li>
-<li><h4 id="方法用final修饰"><a href="#方法用final修饰" class="headerlink" title="方法用final修饰"></a>方法用final修饰</h4><p>如果事务方法用final修饰，会导致事务失效，因为spring事务底层原理使用了aop也就是通过jdk动态代理或者cglib，帮助我们生成了代理类，在代理类中实现的事务功能。但如果某个方法用final修饰了，那么在它的代理类中，就无法重写该方法，而添加事务功能。</p>
-</li>
-<li><h4 id="对象没有被spring管理"><a href="#对象没有被spring管理" class="headerlink" title="对象没有被spring管理"></a>对象没有被spring管理</h4><p>使用spring事务的前提是：对象要被spring管理，需要创建bean实例。如果类没有加@Controller、@Service、@Component、@Repository等注解，即该类没有交给spring去管理，那么它的方法就不会生成事务。</p>
-</li>
-<li><h4 id="表不支持事务"><a href="#表不支持事务" class="headerlink" title="表不支持事务"></a>表不支持事务</h4><p>如果MySQL使用的存储引擎是myisam，这样的话是不支持事务的，因为myisam存储引擎不支持事务。</p>
-</li>
-<li><h4 id="方法内部调用"><a href="#方法内部调用" class="headerlink" title="方法内部调用"></a>方法内部调用</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Service</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">OrderServiceImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">OrderService</span>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">update</span><span class="hljs-params">(Order order)</span>&#123;<br>        <span class="hljs-built_in">this</span>.updateOrder(order);<br>    &#125;<br>    <br>    <span class="hljs-meta">@Transactional</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">updateOrder</span><span class="hljs-params">(Order order)</span>&#123;<br>        <span class="hljs-comment">//更新操作</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+                <h1 id="跨域问题，后端解决"><a href="#跨域问题，后端解决" class="headerlink" title="跨域问题，后端解决"></a>跨域问题，后端解决</h1><h3 id="方式1：返回新的CorsFilter"><a href="#方式1：返回新的CorsFilter" class="headerlink" title="方式1：返回新的CorsFilter"></a>方式1：返回新的CorsFilter</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Configuration</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">CorsConfig</span> &#123;<br>    <span class="hljs-keyword">private</span> CorsConfiguration <span class="hljs-title function_">buildConfig</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-type">CorsConfiguration</span> <span class="hljs-variable">corsConfiguration</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">CorsConfiguration</span>();<br>        corsConfiguration.addAllowedOrigin(<span class="hljs-string">&quot;*&quot;</span>);<br>        corsConfiguration.addAllowedHeader(<span class="hljs-string">&quot;*&quot;</span>);<br>        corsConfiguration.addAllowedMethod(<span class="hljs-string">&quot;*&quot;</span>);<br>        corsConfiguration.setMaxAge(<span class="hljs-number">3600L</span>);<br>        corsConfiguration.setAllowCredentials(<span class="hljs-literal">true</span>);<br>        <span class="hljs-keyword">return</span> corsConfiguration;<br>    &#125;<br> <br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-keyword">public</span> CorsFilter <span class="hljs-title function_">corsFilter</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-type">UrlBasedCorsConfigurationSource</span> <span class="hljs-variable">source</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">UrlBasedCorsConfigurationSource</span>();<br>        source.registerCorsConfiguration(<span class="hljs-string">&quot;/**&quot;</span>, buildConfig());<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">CorsFilter</span>(source);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<p>如上面代码所示，update方法上没有加@Transactional注解，调用有@Transactional注解的updateOrder方法，updateOrder方法上的事务会失效。因为发生了自身调用，调用该类自己的方法，而没有经过spring的代理类，只有在外部调用事务才会生效。</p>
-<p><strong>解决：</strong></p>
-<ul>
-<li><p>再加一个serviece,将内部调用改为外部调用</p>
-</li>
-<li><p>使用编程式事务</p>
-</li>
-<li><p>使用AopContexct.currentProxy()获取代理对象</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Service</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">OrderServiceImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">OrderService</span>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">update</span><span class="hljs-params">(Order order)</span>&#123;<br>        ((OrderService)AopContexct.currentProxy()).updateOrder(order);<br>    &#125;<br>    <br>    <span class="hljs-meta">@Transactional</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">updateOrder</span><span class="hljs-params">(Order order)</span>&#123;<br>        <span class="hljs-comment">//更新操作</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><h4 id="未开启事务"><a href="#未开启事务" class="headerlink" title="未开启事务"></a>未开启事务</h4><p>如果是spring项目，则需要再配置文件中手动配置事务相关参数，如果忘记了配置，事务肯定是失效的。如果是spingboot项目，那么不需要手动配置。因为springboot已经在<code>DataSourceTransactionManagerAutoConfiguration</code>类中帮我们开启了事务。</p>
-</li>
-<li><h4 id="吞了异常"><a href="#吞了异常" class="headerlink" title="吞了异常"></a>吞了异常</h4><p>有时候事务不会回滚，有可能是在代码中手动catch了异常，因为开发者自己捕获了异常，又没有手动抛出，把异常吞掉了，这种情况喜爱spring事务不会回滚。如果想要spring事务能够正常回滚必须抛出它能够处理的异常</p>
-</li>
-</ol>
+<h3 id="方式2：重写WebMvcConfigurer"><a href="#方式2：重写WebMvcConfigurer" class="headerlink" title="方式2：重写WebMvcConfigurer"></a>方式2：重写WebMvcConfigurer</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Configuration</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">WebMvcConfg</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">WebMvcConfigurer</span> &#123;<br> <br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">addCorsMappings</span><span class="hljs-params">(CorsRegistry registry)</span> &#123;<br>        <span class="hljs-comment">//设置允许跨域的路径</span><br>        registry.addMapping(<span class="hljs-string">&quot;/**&quot;</span>)<br>                <span class="hljs-comment">//设置允许跨域请求的域名</span><br>                <span class="hljs-comment">//当**Credentials为true时，**Origin不能为星号，需为具体的ip地址【如果接口不带cookie,ip无需设成具体ip】</span><br>                .allowedOrigins(<span class="hljs-string">&quot;http://localhost:9527&quot;</span>, <span class="hljs-string">&quot;http://127.0.0.1:9527&quot;</span>, <span class="hljs-string">&quot;http://127.0.0.1:8082&quot;</span>, <span class="hljs-string">&quot;http://127.0.0.1:8083&quot;</span>)<br>                <span class="hljs-comment">//是否允许证书 不再默认开启</span><br>                .allowCredentials(<span class="hljs-literal">true</span>)<br>                <span class="hljs-comment">//设置允许的方法</span><br>                .allowedMethods(<span class="hljs-string">&quot;*&quot;</span>)<br>                <span class="hljs-comment">//跨域允许时间</span><br>                .maxAge(<span class="hljs-number">3600</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="方式3：使用注解（-CrossOrigin）"><a href="#方式3：使用注解（-CrossOrigin）" class="headerlink" title="方式3：使用注解（@CrossOrigin）"></a>方式3：使用注解（@CrossOrigin）</h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-meta">@Controller</span><br><span class="hljs-meta">@RequestMapping(<span class="hljs-string">&quot;/admin/sysLog&quot;</span>)</span><br><span class="hljs-meta">@CrossOrigin</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">SysLogController</span> &#123;<br> <br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="方式4：手工设置响应头（HttpServletResponse-）"><a href="#方式4：手工设置响应头（HttpServletResponse-）" class="headerlink" title="方式4：手工设置响应头（HttpServletResponse ）"></a>方式4：手工设置响应头（HttpServletResponse ）</h3><p>这种方式，可以自己手工加到，具体的controller，inteceptor，filter等逻辑里。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-meta">@RequestMapping(<span class="hljs-string">&quot;/test&quot;</span>)</span><br><span class="hljs-meta">@ResponseBody</span><br><span class="hljs-keyword">public</span> String test()&#123;<br>response.addHeader(<span class="hljs-string">&quot;Access-Control-Allow-Origin&quot;</span>, <span class="hljs-string">&quot;http://localhost:8080&quot;</span>);<br><span class="hljs-keyword">return</span> <span class="hljs-string">&quot;success&quot;</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
 
                 
               </div>
@@ -321,7 +302,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/Spring/" class="category-chain-item">Spring</a>
+  <a href="/categories/Http/" class="category-chain-item">Http</a>
   
   
 
@@ -336,7 +317,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Spring/">#Spring</a>
+        <a href="/tags/Http/">#Http</a>
       
     </div>
   
@@ -348,8 +329,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Spring事务哪些情况会失效？</div>
-      <div>http://example.com/2022/09/04/Spring事务失效/</div>
+      <div>跨域问题，后端解决</div>
+      <div>http://example.com/2022/09/07/跨域问题，后端解决/</div>
     </div>
     <div class="license-meta">
       
@@ -361,7 +342,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年9月4日</div>
+          <div>2022年9月7日</div>
         </div>
       
       
@@ -391,9 +372,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/09/04/Servlet/" title="Servlet">
+                      <a href="/2022/09/07/OSI%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E6%AF%8F%E5%B1%82%E5%AF%B9%E5%BA%94%E7%9A%84%E5%8A%9F%E8%83%BD%E3%80%82%E5%8D%8F%E8%AE%AE/" title="OSI体系结构各层对应功能与协议">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Servlet</span>
+                        <span class="hidden-mobile">OSI体系结构各层对应功能与协议</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -401,8 +382,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/09/04/Swagger/" title="Swagger">
-                        <span class="hidden-mobile">Swagger</span>
+                      <a href="/2022/09/06/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BC%98%E5%8C%96/" title="MySQL数据库优化">
+                        <span class="hidden-mobile">MySQL数据库优化</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

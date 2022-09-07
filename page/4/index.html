@@ -19,7 +19,7 @@
     <meta name="description" content="一个简单的个人博客网站">
 <meta property="og:type" content="website">
 <meta property="og:title" content="九黎城">
-<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:url" content="http://example.com/page/4/index.html">
 <meta property="og:site_name" content="九黎城">
 <meta property="og:description" content="一个简单的个人博客网站">
 <meta property="og:locale" content="zh_CN">
@@ -223,23 +223,23 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/09/07/Netty03-%E8%BF%9B%E9%98%B6/" target="_self">
-          <img src="/img/10.jpg" srcset="/img/loading.gif" lazyload alt="Netty-进阶">
+        <a href="/2022/09/03/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/" target="_self">
+          <img src="/img/8.jpg" srcset="/img/loading.gif" lazyload alt="单例设计模式">
         </a>
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/09/07/Netty03-%E8%BF%9B%E9%98%B6/" target="_self">
-          Netty-进阶
+        <a href="/2022/09/03/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/" target="_self">
+          单例设计模式
         </a>
       </h1>
 
       
-      <a class="index-excerpt " href="/2022/09/07/Netty03-%E8%BF%9B%E9%98%B6/" target="_self">
+      <a class="index-excerpt " href="/2022/09/03/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/" target="_self">
         <div>
-          三. Netty 进阶1. 粘包与半包1.1 粘包现象服务端代码 12345678910111213141516171819202122232425262728293031323334353637383940414243444546public class HelloWorldServer &amp;#123;    static final Logger log &#x3D; LoggerFactory.getL
+          一、单例模式的定义定义： 确保一个类只有一个实例，并提供该实例的全局访问点。 这样做的好处是：有些实例，全局只需要一个就够了，使用单例模式就可以避免一个全局使用的类，频繁的创建与销毁，耗费系统资源。 二、单例模式的设计要素 一个私有构造函数 （确保只能单例类自己创建实例） 一个私有静态变量 （确保只有一个实例） 一个公有静态函数 （给使用者提供调用方法）  简单来说就是，单例类的构造方法不让其他人
         </div>
       </a>
 
@@ -247,8 +247,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-09-07 10:22" pubdate>
-              2022-09-07
+            <time datetime="2022-09-03 14:12" pubdate>
+              2022-09-03
             </time>
           </div>
         
@@ -263,7 +263,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/Netty/" class="category-chain-item">Netty</a>
+  <a href="/categories/java/" class="category-chain-item">java</a>
   
   
 
@@ -278,7 +278,7 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Netty/">#Netty</a>
+              <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">#设计模式</a>
             
           </div>
         
@@ -290,23 +290,23 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/09/07/Netty02-%E5%85%A5%E9%97%A8/" target="_self">
-          <img src="/img/9.jpg" srcset="/img/loading.gif" lazyload alt="Netty-入门">
+        <a href="/2022/09/03/%E8%A1%8C%E4%B8%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" target="_self">
+          <img src="/img/7.jpg" srcset="/img/loading.gif" lazyload alt="行为型设计模式">
         </a>
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/09/07/Netty02-%E5%85%A5%E9%97%A8/" target="_self">
-          Netty-入门
+        <a href="/2022/09/03/%E8%A1%8C%E4%B8%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" target="_self">
+          行为型设计模式
         </a>
       </h1>
 
       
-      <a class="index-excerpt " href="/2022/09/07/Netty02-%E5%85%A5%E9%97%A8/" target="_self">
+      <a class="index-excerpt " href="/2022/09/03/%E8%A1%8C%E4%B8%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" target="_self">
         <div>
-          二. Netty 入门1. 概述1.1 Netty 是什么？12Netty is an asynchronous event-driven network application frameworkfor rapid development of maintainable high performance protocol servers &amp; clients.  Netty 是一个异步的、
+          行为型设计模式策略设计模式 定义：指定义一系列算法，并将每一种算法封装起来，让它们可以相互替换。策略模式能让算法独立于使用它地客户而变化。  结构图：    模板设计模式 定义：指定义一个操作中算法的骨架，而将一些步骤延迟到子类中，模板方法使得子类可以不改变一种算法的结构即可重定义该算法的某些特定步骤。  结构图：    备忘录模式 定义：指在不破坏封装的前提下，捕获一个对象的内部状态，并在该对象
         </div>
       </a>
 
@@ -314,8 +314,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-09-07 10:17" pubdate>
-              2022-09-07
+            <time datetime="2022-09-03 12:12" pubdate>
+              2022-09-03
             </time>
           </div>
         
@@ -330,7 +330,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/Netty/" class="category-chain-item">Netty</a>
+  <a href="/categories/java/" class="category-chain-item">java</a>
   
   
 
@@ -345,7 +345,7 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Netty/">#Netty</a>
+              <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">#设计模式</a>
             
           </div>
         
@@ -357,23 +357,23 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/09/07/Netty01-nio/" target="_self">
-          <img src="/img/4.jpg" srcset="/img/loading.gif" lazyload alt="Netty-nio">
+        <a href="/2022/09/03/%E5%88%9B%E5%BB%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" target="_self">
+          <img src="/img/6.jpg" srcset="/img/loading.gif" lazyload alt="创建型设计模式">
         </a>
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/09/07/Netty01-nio/" target="_self">
-          Netty-nio
+        <a href="/2022/09/03/%E5%88%9B%E5%BB%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" target="_self">
+          创建型设计模式
         </a>
       </h1>
 
       
-      <a class="index-excerpt " href="/2022/09/07/Netty01-nio/" target="_self">
+      <a class="index-excerpt " href="/2022/09/03/%E5%88%9B%E5%BB%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" target="_self">
         <div>
-          一. NIO 基础non-blocking io 非阻塞 IO 1. 三大组件1.1 Channel &amp; Bufferchannel 有一点类似于 stream，它就是读写数据的双向通道，可以从 channel 将数据读入 buffer，也可以将 buffer 的数据写入 channel，而之前的 stream 要么是输入，要么是输出，channel 比 stream 更为底层 graph
+          创建型设计模式简单工厂模式 定义：定义一个工厂类，它可以根据参数的不同返回不同类的实例，被创建的实例通常都具有共同的父类。  结构图    工厂方法模式 定义：定义一个用于创建对象的接口，但是让子类决定将哪一个类实例化。工厂方法模式让一个类的实例化延迟到其子类  结构图：    抽象工厂模式 定义：提供一个创建一些列相关或相互依赖对象的接口，而无需指定它们具体的类。  结构图：    建造者模式
         </div>
       </a>
 
@@ -381,8 +381,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-09-07 10:12" pubdate>
-              2022-09-07
+            <time datetime="2022-09-03 11:12" pubdate>
+              2022-09-03
             </time>
           </div>
         
@@ -397,7 +397,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/Netty/" class="category-chain-item">Netty</a>
+  <a href="/categories/java/" class="category-chain-item">java</a>
   
   
 
@@ -412,7 +412,7 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Netty/">#Netty</a>
+              <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">#设计模式</a>
             
           </div>
         
@@ -424,23 +424,23 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/09/07/NoSQL/" target="_self">
-          <img src="/img/18.jpg" srcset="/img/loading.gif" lazyload alt="Redis">
+        <a href="/2022/09/03/%E7%BB%93%E6%9E%84%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" target="_self">
+          <img src="/img/5.jpg" srcset="/img/loading.gif" lazyload alt="结构型设计模式">
         </a>
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/09/07/NoSQL/" target="_self">
-          Redis
+        <a href="/2022/09/03/%E7%BB%93%E6%9E%84%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" target="_self">
+          结构型设计模式
         </a>
       </h1>
 
       
-      <a class="index-excerpt " href="/2022/09/07/NoSQL/" target="_self">
+      <a class="index-excerpt " href="/2022/09/03/%E7%BB%93%E6%9E%84%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" target="_self">
         <div>
-          NoSQL什么是NoSQLNoSQL全称是Not only SQL(不仅仅是SQL)，它属于非关系型数据库（Not-Relational DB）。 NoSQl的存储结构主要有两个特点：  数据之间是无关系的：关系型数据库有主外键约束，而NoSQL弱化了这个概念 数据的结构是松散的、可变的：在关系型数据库中，如果表有5个“列”。那么最多只能存储5个列的值；而在NoSQL中没有所谓固定的列数，甚至连“
+          结构型设计模式适配器模式 定义：将一个类的接口转换成客户希望的另外一个接口。适配器模式让那些接口不兼容的类可以一起工作。  结构图：     桥接模式 定义：将抽象部分与它的实现部分解耦，使得两者都能够独立变化。  结构图：    组合模式 定义：组合多个对象形成树形结构以表示具有部分-整体关系的层次结构。组合模式让客户端可以统一对待单个对象和组合对象。  结构图：    装饰模式 定义：动态地给
         </div>
       </a>
 
@@ -448,8 +448,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-09-07 09:12" pubdate>
-              2022-09-07
+            <time datetime="2022-09-03 09:12" pubdate>
+              2022-09-03
             </time>
           </div>
         
@@ -464,7 +464,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/redis/" class="category-chain-item">redis</a>
+  <a href="/categories/java/" class="category-chain-item">java</a>
   
   
 
@@ -479,7 +479,7 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/NoSQL/">#NoSQL</a>
+              <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">#设计模式</a>
             
           </div>
         
@@ -491,23 +491,23 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/09/07/OSI%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E6%AF%8F%E5%B1%82%E5%AF%B9%E5%BA%94%E7%9A%84%E5%8A%9F%E8%83%BD%E3%80%82%E5%8D%8F%E8%AE%AE/" target="_self">
-          <img src="/img/14.jpg" srcset="/img/loading.gif" lazyload alt="OSI体系结构各层对应功能与协议">
+        <a href="/2022/09/02/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E4%B8%BE%E4%BE%8B/" target="_self">
+          <img src="/img/9.jpg" srcset="/img/loading.gif" lazyload alt="各种设计模式应用场景">
         </a>
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/09/07/OSI%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E6%AF%8F%E5%B1%82%E5%AF%B9%E5%BA%94%E7%9A%84%E5%8A%9F%E8%83%BD%E3%80%82%E5%8D%8F%E8%AE%AE/" target="_self">
-          OSI体系结构各层对应功能与协议
+        <a href="/2022/09/02/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E4%B8%BE%E4%BE%8B/" target="_self">
+          各种设计模式应用场景
         </a>
       </h1>
 
       
-      <a class="index-excerpt " href="/2022/09/07/OSI%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E6%AF%8F%E5%B1%82%E5%AF%B9%E5%BA%94%E7%9A%84%E5%8A%9F%E8%83%BD%E3%80%82%E5%8D%8F%E8%AE%AE/" target="_self">
+      <a class="index-excerpt " href="/2022/09/02/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E4%B8%BE%E4%BE%8B/" target="_self">
         <div>
-          OSI体系结构每层对应的功能。协议OSI每层对用功能及协议以及较为常用的运用    OSI模型层 功能 常见 协议    物理层（比特Bit） 设备间接收或发送比特流；说明电压、线速和线缆等 中继器、网线集线器、Hub等 RJ45、CLOCKIEEE802.3   数据链路层（帧Frame） 将比特组合成字节，进而组合成帧；用MAC地址访问介质；错误可以被发现但不能被纠正 网卡、网桥二层交换机等
+          设计模式应用场景 如何确保系统中一个类只有一个实例？单例模式 如何将对象的创建和对象的使用分离？简单工厂模式 如何通过不同的工厂来创建不同类型的对象？工厂方法模式 如何设计一个能够闯将一些列产品对象的工厂？抽象工厂模式 如何通过克隆来得到一个一模一样的对象？原型模式 如何一步步创建一个包含多个组成部分的复杂对象？建造者模式 如何在不修改现有系统的前提下重用没有源码的第三方类库？适配器模式 如何避免
         </div>
       </a>
 
@@ -515,38 +515,17 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-09-07 03:12" pubdate>
-              2022-09-07
+            <time datetime="2022-09-02 19:12" pubdate>
+              2022-09-02
             </time>
           </div>
         
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/Http/" class="category-chain-item">Http</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Http/">#Http</a>
+              <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">#设计模式</a>
             
           </div>
         
@@ -558,23 +537,23 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/09/07/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98%EF%BC%8C%E5%90%8E%E7%AB%AF%E8%A7%A3%E5%86%B3/" target="_self">
-          <img src="/img/5.jpg" srcset="/img/loading.gif" lazyload alt="跨域问题，后端解决">
+        <a href="/2022/09/02/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" target="_self">
+          <img src="/img/11.jpg" srcset="/img/loading.gif" lazyload alt="软件设计模式基础">
         </a>
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/09/07/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98%EF%BC%8C%E5%90%8E%E7%AB%AF%E8%A7%A3%E5%86%B3/" target="_self">
-          跨域问题，后端解决
+        <a href="/2022/09/02/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" target="_self">
+          软件设计模式基础
         </a>
       </h1>
 
       
-      <a class="index-excerpt " href="/2022/09/07/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98%EF%BC%8C%E5%90%8E%E7%AB%AF%E8%A7%A3%E5%86%B3/" target="_self">
+      <a class="index-excerpt " href="/2022/09/02/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" target="_self">
         <div>
-          跨域问题，后端解决方式1：返回新的CorsFilter12345678910111213141516171819@Configurationpublic class CorsConfig &amp;#123;    private CorsConfiguration buildConfig() &amp;#123;        CorsConfiguration corsConfiguration &#x3D; new
+          软件设计模式软件设计模式定义软件设计模式是一套被反复使用，经过分类编目的代码设计经验的总结。使用软件设计模式是为了可重用代码、让代码更容易被他人理解、保证代码的可靠性。 软件设计模式定义有如下定义：  软件设计模式是对代码设计经验的总结，且经过分类编目。 软件设计模式的根本目的是提高代码的重用性和可靠性。代码重用性是指相同功能的代码，不必多次编写。代码可靠性是指增加新功能时，对原来的功能没有影响。
         </div>
       </a>
 
@@ -582,8 +561,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-09-07 02:12" pubdate>
-              2022-09-07
+            <time datetime="2022-09-02 09:12" pubdate>
+              2022-09-02
             </time>
           </div>
         
@@ -598,7 +577,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/Http/" class="category-chain-item">Http</a>
+  <a href="/categories/java/" class="category-chain-item">java</a>
   
   
 
@@ -613,275 +592,7 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Http/">#Http</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/09/06/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BC%98%E5%8C%96/" target="_self">
-          <img src="/img/mysql.png" srcset="/img/loading.gif" lazyload alt="MySQL数据库优化">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/09/06/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BC%98%E5%8C%96/" target="_self">
-          MySQL数据库优化
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt " href="/2022/09/06/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BC%98%E5%8C%96/" target="_self">
-        <div>
-          MySQL数据库优化1.添加索引很多时候，我们的慢查询，都是因为没有加索引。如果没有加索引的话，会导致全表扫描的。因此，应考虑在where的条件列，建立索引，尽量避免全表扫描。 2.SQL 索引不生效 2.1 隐式的类型转换，索引失效我们创建一个用户user表 12345678CREATE TABLE user (  id int(11) NOT NULL AUTO_INCREMENT,  use
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-09-06 09:12" pubdate>
-              2022-09-06
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/mysql/" class="category-chain-item">mysql</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/mysql/">#mysql</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/09/06/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0/" target="_self">
-          <img src="/img/mysql.png" srcset="/img/loading.gif" lazyload alt="MySQL数据库">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/09/06/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0/" target="_self">
-          MySQL数据库
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt " href="/2022/09/06/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0/" target="_self">
-        <div>
-          第一部分 MySQL基础篇第01章 数据库概述1. 为什么要使用数据库 持久化(persistence)：把数据保存到可掉电式存储设备中以供之后使用。大多数情况下，特别是企业级应用，数据持久化意味着将内存中的数据保存到硬盘上加以“固化”，而持久化的实现过程大多通过各种关系数据库来完成。 持久化的主要作用是将内存中的数据存储在关系型数据库中，当然也可以存储在磁盘文件、XML数据文件中。  2. 数据
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-09-06 09:12" pubdate>
-              2022-09-06
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/mysql/" class="category-chain-item">mysql</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/mysql/">#mysql</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/09/05/MySQL%E9%AB%98%E7%BA%A7/" target="_self">
-          <img src="/img/mysql.png" srcset="/img/loading.gif" lazyload alt="MySQL高级">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/09/05/MySQL%E9%AB%98%E7%BA%A7/" target="_self">
-          MySQL高级
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt " href="/2022/09/05/MySQL%E9%AB%98%E7%BA%A7/" target="_self">
-        <div>
-          MySQL高级一、Mysql逻辑架构1、整体架构 连接层最上层是一些客服端和连接服务，包括socket通信和大多数基于客服端&#x2F;服务端工具实现的类似于tcp&#x2F;ip的通信，主要完成一些类似于连接处理、授权认证及相关安全的方案，在该层上引入了线程池的概念，为通过认证安全接入的客服端提供线程，同样在该层上可以实现基于SSL的安全的连接，服务器也会为安全接入的每个客户端验证它所具有的操作
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-09-05 09:12" pubdate>
-              2022-09-05
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/mysql/" class="category-chain-item">mysql</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/mysql/">#mysql</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/09/05/%E4%BB%8E%E8%BE%93%E5%85%A5URL%E5%88%B0%E6%B5%8F%E8%A7%88%E5%99%A8%E6%98%BE%E7%A4%BA%E9%A1%B5%E9%9D%A2%E7%9A%84%E6%B5%81%E7%A8%8B/" target="_self">
-          <img src="/img/17.jpg" srcset="/img/loading.gif" lazyload alt="从输入URL到浏览器显示页面的流程">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/09/05/%E4%BB%8E%E8%BE%93%E5%85%A5URL%E5%88%B0%E6%B5%8F%E8%A7%88%E5%99%A8%E6%98%BE%E7%A4%BA%E9%A1%B5%E9%9D%A2%E7%9A%84%E6%B5%81%E7%A8%8B/" target="_self">
-          从输入URL到浏览器显示页面的流程
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt " href="/2022/09/05/%E4%BB%8E%E8%BE%93%E5%85%A5URL%E5%88%B0%E6%B5%8F%E8%A7%88%E5%99%A8%E6%98%BE%E7%A4%BA%E9%A1%B5%E9%9D%A2%E7%9A%84%E6%B5%81%E7%A8%8B/" target="_self">
-        <div>
-          从输入URL到浏览器显示页面的流程当在浏览器中输入域名，敲下回车后，不一会儿浏览器就会显示我们想要的界面。本文将简单介绍这其中经历了什么过程。 注意：以下分析基于HTTP请求，并且Web容器使用Tomcat，后端框架使用SSM 一、URL解析1、地址解析浏览器会根据你的输入来判断该输入是一条合法的URL，还是需要被搜索的关键词。并且根据你输入的内容进行自动完成、字符编码等操作。 2、其他操作目前大
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-09-05 09:12" pubdate>
-              2022-09-05
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/Http/" class="category-chain-item">Http</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Http/">#Http</a>
+              <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">#设计模式</a>
             
           </div>
         
@@ -893,7 +604,7 @@
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="page-number" href="/page/3/#board">3</a><a class="page-number" href="/page/4/#board">4</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
+      <a class="extend prev" rel="prev" href="/page/3/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#board">2</a><a class="page-number" href="/page/3/#board">3</a><span class="page-number current">4</span>
     </span>
   </nav>
 
